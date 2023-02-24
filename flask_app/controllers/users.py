@@ -13,12 +13,12 @@ def index():
 def register():
     if not User.validate_user(request.form):
         # return redirect('/')
-        return render_template('index.html', first_name=request.form['first_name'],last_name=request.form['last_name'],email=request.form['email'])
+        return render_template('index.html', first_name=request.form['first_name'],last_name=request.form['last_name'],email=request.form['email'],tier=request.form['tier'])
     data ={
         "first_name": request.form['first_name'],
         "last_name": request.form['last_name'],
         "email": request.form['email'],
-        "account":request.form['account'],
+        "tier":request.form['tier'],
         "password": bcrypt.generate_password_hash(request.form['password'])
     }
     id=User.save(data)
