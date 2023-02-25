@@ -1,55 +1,46 @@
-from flask import render_template, request, redirect,session,flash
 from flask_app import app
-from flask_app.models.user import User
-from flask import flash
+from flask import render_template, request, redirect, session
+from flask_app.models import user
 from flask_bcrypt import Bcrypt
 bcrypt = Bcrypt(app)
 
-@app.route('/')
-def index():
-    return render_template('index.html')
+@app.route("/")
+def login_page():
+    return render_template("login.html")
 
-@app.route('/register', methods=['POST'])
-def register():
-    if not User.validate_user(request.form):
-        # return redirect('/')
-        return render_template('index.html', first_name=request.form['first_name'],last_name=request.form['last_name'],email=request.form['email'],tier=request.form['tier'])
-    data ={
-        "first_name": request.form['first_name'],
-        "last_name": request.form['last_name'],
-        "email": request.form['email'],
-        "tier":request.form['tier'],
-        "password": bcrypt.generate_password_hash(request.form['password'])
+@app.route("/user/cards")
+def users_card():
+    if "user_id" not in session:
+        return redirect("/")
+    data = {
+        "id": session["user_id"]
     }
-    id=User.save(data)
-    session['user_id'] = id
-    return redirect('/dashboard')
+    return render_template("users_cards.html", this_users_cards = user.User.get_users_card(data))
 
-@app.route('/login', methods=['POST'])
-def login():
-    user = User.get_by_email(request.form)
-
-    if not user:
-        flash("Invalid Email","login")
-        return redirect('/')
-    if not bcrypt.check_password_hash(user.password, request.form['password']):
-        flash("Invalid Password","login")
-        return redirect('/')
-    session['user_id'] = user.id
-    return redirect('/dashboard')
-
-@app.route('/dashboard')
-def dashboard():
-    if 'user_id' not in session:
-        redirect('/logout')
-    data ={
-        'id':session['user_id']
+@app.route("/register", methods=["POST"])
+def register_user():
+    if not user.User.validate_registration(request.form):
+        return redirect("/")
+    data = {
+        "first_name": request.form["first_name"],
+        "last_name": request.form["last_name"],
+        "email": request.form["email"],
+        "password": bcrypt.generate_password_hash(request.form["password"]),
     }
-    return render_template("dashboard.html",user=User.get_by_id(data))
-from flask_app import app
-from flask import render_template,redirect,request, session, flash
+    session["user_id"] = user.User.register_user(data)
 
-@app.route('/logout')
-def logout():
+    return redirect("/dashboard")
+
+@app.route("/login", methods=["POST"])
+def log_user_in():
+    found_user_or_false = user.User.validate_login(request.form)
+    if not found_user_or_false:
+        return redirect("/")
+    session["user_id"] = found_user_or_false.id
+    return redirect("/dashboard")
+
+
+@app.route("/logout")
+def logout_user():
     session.clear()
     return redirect('/')
