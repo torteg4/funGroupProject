@@ -1,7 +1,9 @@
+# a cursor is the object we use to interact with the database
 import pymysql.cursors
-
+# this class will give us an instance of a connection to our database
 class MySQLConnection:
     def __init__(self, db):
+        # change the user and password as needed
         connection = pymysql.connect(host = 'localhost',
                                     user = 'root', 
                                     password = 'root', 
@@ -9,16 +11,18 @@ class MySQLConnection:
                                     charset = 'utf8mb4',
                                     cursorclass = pymysql.cursors.DictCursor,
                                     autocommit = True)
+        # establish the connection to the database
         self.connection = connection
+    # the method to query the database
     def query_db(self, query, data=None):
         with self.connection.cursor() as cursor:
             try:
                 query = cursor.mogrify(query, data)
                 print("Running Query:", query)
-     
+    
                 cursor.execute(query, data)
                 if query.lower().find("insert") >= 0:
-                    # INSERT queries will return the ID NUMBER of the row inserted
+                # INSERT queries will return the ID NUMBER of the row inserted
                     self.connection.commit()
                     return cursor.lastrowid
                 elif query.lower().find("select") >= 0:
