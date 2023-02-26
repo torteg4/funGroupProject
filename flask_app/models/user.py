@@ -25,9 +25,9 @@ class User:
     def register_user(cls, data):
         query = """
         INSERT INTO users
-        (first_name, last_name, email, password)
+        (first_name, last_name, tier, email, password)
         VALUES 
-        (%(first_name)s, %(last_name)s, %(email)s, %(password)s);
+        (%(first_name)s, %(last_name)s, %(tier)s, %(email)s %(password)s);
         """
         return connectToMySQL(cls.db_name).query_db(query, data)
 
@@ -91,9 +91,9 @@ class User:
         if len(form_data["last_name"]) < 2:
             flash("Last name must be 2 or more characters", "register")
             is_valid = False
-        if len(form_data["tier"]) < 2:
-            flash("Tier must be 2 or more characters", "register")
-            is_valid = False
+        # if len(form_data["tier"]) < 2:
+        #     flash("Tier must be 2 or more characters", "register")
+        #     is_valid = False
         if not EMAIL_REGEX.match(form_data['email']): 
             flash("Invalid email address!", "register")
             is_valid = False

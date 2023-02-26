@@ -66,9 +66,9 @@ def add_card_to_db():
 
     data = {
         "name": request.form["name"],
-        "race": request.form["race"],
-        "classname": request.form["classname"],
-        "level": request.form["level"],
+        "bio": request.form["bio"],
+        "skills": request.form["skills"],
+        "stats": request.form["stats"],
         "user_id": session["user_id"],
     }
     Card.add_card(data)

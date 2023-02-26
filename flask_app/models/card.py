@@ -19,7 +19,7 @@ class Card:
     def add_card(cls, data):
         query = """
         INSERT INTO cards
-        (name, race, classname, level, user_id)
+        (name, bio, skills, stats, user_id)
         VALUES
         (%(name)s, %(bio)s, %(skills)s, %(stats)s, %(user_id)s);
         """
@@ -44,6 +44,7 @@ class Card:
                     "id": card_dictionary["users.id"],
                     "first_name": card_dictionary["first_name"],
                     "last_name": card_dictionary["last_name"],
+                    "tier": card_dictionary["tier"],
                     "email": card_dictionary["email"],
                     "password": card_dictionary["password"],
                     "created_at": card_dictionary["users.created_at"],
