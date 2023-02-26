@@ -7,6 +7,17 @@
     <title>View Card</title>
 </head>
 <body>
-    
+    {% for card in user.cards %}
+    <tr>
+        <td>{{ card.name }}</td>
+        <td>{{ card.bio }}</td>
+        <td>{{ card.skills }}</td>
+        <td>{{ card.stats }}</td>
+        <td>
+            <a href="/edit/{{ card.id }}">Edit</a>
+            <a href="/destroy/{{ card.id }}">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
 </body>
 </html>
