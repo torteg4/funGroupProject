@@ -7,7 +7,7 @@
     <title>Card Creation.</title>
 </head>
 <body>
-    <form action="/new_card" method="post" class="col-3 enable-rounded bg-dark text-light">
+    <form action="/cards/add_to_db" method="post" class="col-3 enable-rounded bg-dark text-light">
         <h2 class="text-light my-3">-Create a new card-</h2>
     {% with messages = get_flashed_messages(category_filter=['validate_card']) %}
         {% if messages %}
@@ -24,7 +24,7 @@
         <input type="text" name="name" value="{{name}}" class="form-control">
     </div>
     <div class="form-group">
-        <label for="bio">Last Name:</label>
+        <label for="bio">Bio:</label>
         <input type="text" name="bio" value="{{bio}}" class="form-control">
     </div>
     <div class="form-group">

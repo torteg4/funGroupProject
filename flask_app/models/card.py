@@ -19,7 +19,7 @@ class Card:
     def add_card(cls, data):
         query = """
         INSERT INTO cards
-        (name, race, classname, level, user_id)
+        (name, bio, skills, stats, user_id)
         VALUES
         (%(name)s, %(bio)s, %(skills)s, %(stats)s, %(user_id)s);
         """
@@ -93,9 +93,9 @@ class Card:
         query= """
         UPDATE cards SET
         name = %(name)s,
-        race = %(bio)s,
-        classname = %(skills)s,
-        level = %(stats)s
+        bio = %(bio)s,
+        skills = %(skills)s,
+        stats = %(stats)s
         WHERE
         id = %(id)s;
         """
