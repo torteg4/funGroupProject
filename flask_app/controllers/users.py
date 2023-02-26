@@ -1,6 +1,6 @@
 from flask_app import app
 from flask import render_template, request, redirect, session
-from flask_app.models.user import User
+from flask_app.models import user
 from flask_bcrypt import Bcrypt
 bcrypt = Bcrypt(app)
 
@@ -15,26 +15,26 @@ def users_card():
     data = {
         "id": session["user_id"]
     }
-    return render_template("users_cards.html", this_users_cards = User.get_users_card(data))
+    return render_template("users_cards.html", this_users_cards = user.User.get_users_card(data))
 
 @app.route("/register", methods=["POST"])
 def register_user():
-    if not User.validate_registration(request.form):
+    if not user.User.validate_registration(request.form):
         return redirect("/")
     data = {
         "first_name": request.form["first_name"],
         "last_name": request.form["last_name"],
-        "tier": request.form["tier"],
+        # "tier": request.form["tier"],
         "email": request.form["email"],
         "password": bcrypt.generate_password_hash(request.form["password"]),
     }
-    session["user_id"] = User.register_user(data)
+    session["user_id"] = user.User.register_user(data)
 
     return redirect("/dashboard")
 
 @app.route("/login", methods=["POST"])
 def log_user_in():
-    found_user_or_false = User.validate_login(request.form)
+    found_user_or_false = user.User.validate_login(request.form)
     if not found_user_or_false:
         return redirect("/")
     session["user_id"] = found_user_or_false.id

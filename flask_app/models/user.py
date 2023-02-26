@@ -5,7 +5,7 @@ EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
 from flask_bcrypt import Bcrypt
 from flask_app import app
 bcrypt = Bcrypt(app)
-from flask_app.models.card import Card
+from flask_app.models import card
 
 class User:
     db_name = "not_a_scam_schema"
@@ -14,7 +14,7 @@ class User:
         self.id = data["id"]
         self.first_name = data["first_name"]
         self.last_name = data["last_name"]
-        self.tier = data["tier"]
+        # self.tier = data["tier"]
         self.email = data["email"]
         self.password = data["password"]
         self.created_at = data["created_at"]
@@ -25,9 +25,9 @@ class User:
     def register_user(cls, data):
         query = """
         INSERT INTO users
-        (first_name, last_name, tier, email, password)
+        (first_name, last_name, email, password)
         VALUES 
-        (%(first_name)s, %(last_name)s, %(tier)s, %(email)s %(password)s);
+        (%(first_name)s, %(last_name)s, %(email)s, %(password)s);
         """
         return connectToMySQL(cls.db_name).query_db(query, data)
 
@@ -78,7 +78,7 @@ class User:
                     "created_at": user_card["cards.created_at"],
                     "updated_at": user_card["cards.updated_at"]
                 }
-                card_obj = Card(card_dictionary)
+                card_obj = card.Card(card_dictionary)
                 user_obj.cards.append(card_obj)
             return user_obj
     

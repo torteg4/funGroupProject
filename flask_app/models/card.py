@@ -44,7 +44,6 @@ class Card:
                     "id": card_dictionary["users.id"],
                     "first_name": card_dictionary["first_name"],
                     "last_name": card_dictionary["last_name"],
-                    "tier": card_dictionary["tier"],
                     "email": card_dictionary["email"],
                     "password": card_dictionary["password"],
                     "created_at": card_dictionary["users.created_at"],
@@ -94,9 +93,9 @@ class Card:
         query= """
         UPDATE cards SET
         name = %(name)s,
-        race = %(bio)s,
-        classname = %(skills)s,
-        level = %(stats)s
+        bio = %(bio)s,
+        skills = %(skills)s,
+        stats = %(stats)s
         WHERE
         id = %(id)s;
         """
