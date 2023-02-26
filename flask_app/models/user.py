@@ -5,7 +5,11 @@ EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
 from flask_bcrypt import Bcrypt
 from flask_app import app
 bcrypt = Bcrypt(app)
+<<<<<<< HEAD
 from flask_app.models import card
+=======
+from flask_app.models.card import Card
+>>>>>>> aedc583b52900a66bf588de554a80a2acf419f39
 
 class User:
     db_name = "not_a_scam_schema"
@@ -78,7 +82,7 @@ class User:
                     "created_at": user_card["cards.created_at"],
                     "updated_at": user_card["cards.updated_at"]
                 }
-                card_obj = card.Card(card_dictionary)
+                card_obj = Card(card_dictionary)
                 user_obj.cards.append(card_obj)
             return user_obj
     
