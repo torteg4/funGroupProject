@@ -5,7 +5,7 @@ EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
 from flask_bcrypt import Bcrypt
 from flask_app import app
 bcrypt = Bcrypt(app)
-from flask_app.models import cards
+from flask_app.models import card
 
 class User:
     db_name = "not_a_scam_schema"

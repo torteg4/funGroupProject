@@ -1,6 +1,7 @@
 from flask_app import app
 from flask import render_template, request, redirect, session
-from flask_app.models import user, card
+from flask_app.models.user import User
+from flask_app.models.card import Card
 
 @app.route("/dashboard")
 def all_cards_page():
@@ -9,7 +10,7 @@ def all_cards_page():
     data = {
         "id": session["user_id"]
     }
-    return render_template("dashboard.html", this_user= user.User.get_user_by_id(data), all_cards = card.Card.get_all_cards())
+    return render_template("dashboard.html", this_user= User.get_user_by_id(data), all_cards = Card.get_all_cards())
 
 # route that will show the new card page
 @app.route("/new/card")
@@ -19,7 +20,7 @@ def new_card():
     data = {
         "id": session["user_id"]
     }
-    return render_template("/create_card.html", this_user = user.User.get_user_by_id(data))
+    return render_template("/create_card.html", this_user = User.get_user_by_id(data))
 
 # shows a specific card
 @app.route("/show/<int:id>")
