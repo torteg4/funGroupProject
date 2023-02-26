@@ -1,6 +1,7 @@
 from flask_app import app
 from flask import render_template, request, redirect, session
-from flask_app.models import user, card
+from flask_app.models.user import User
+from flask_app.models.card import Card
 
 @app.route("/dashboard")
 def all_cards_page():
@@ -9,7 +10,7 @@ def all_cards_page():
     data = {
         "id": session["user_id"]
     }
-    return render_template("dashboard.html", this_user= user.User.get_user_by_id(data), all_cards = card.Card.get_all_cards())
+    return render_template("dashboard.html", this_user= User.get_user_by_id(data), all_cards = Card.get_all_cards())
 
 # route that will show the new card page
 @app.route("/new/card")
@@ -19,7 +20,7 @@ def new_card():
     data = {
         "id": session["user_id"]
     }
-    return render_template("/create_card.html", this_user = user.User.get_user_by_id(data))
+    return render_template("/create_card.html", this_user = User.get_user_by_id(data))
 
 # shows a specific card
 @app.route("/show/<int:id>")
@@ -32,7 +33,7 @@ def view_card(id):
     dict = {
         "id": session["user_id"]
     }
-    return render_template("/view_card.html", this_user = user.User.get_user_by_id(dict), this_card = card.Card.get_one_card(data))
+    return render_template("/view_card.html", this_user = User.get_user_by_id(dict), this_card = Card.get_one_card(data))
 
 # route that will show a card to edit
 @app.route("/edit/<int:id>")
@@ -42,7 +43,7 @@ def edit_card(id):
     data = {
         "id": id,
     }
-    return render_template("/edit_card.html", this_card = card.Card.get_one_card(data))
+    return render_template("/edit_card.html", this_card = Card.get_one_card(data))
 
 # deletes card from database
 @app.route("/cards/delete/<int:id>")
@@ -52,7 +53,7 @@ def delete_card(id):
     data = {
         "id": id,
     }
-    card.Card.delete_card(data)
+    Card.delete_card(data)
     return redirect("/dashboard")
 
 # add a card to database
@@ -60,7 +61,7 @@ def delete_card(id):
 def add_card_to_db():
     if "user_id" not in session:
         return redirect("/")
-    if not card.Card.validate_card(request.form):
+    if not Card.validate_card(request.form):
         return redirect("/new/card")
 
     data = {
@@ -70,7 +71,7 @@ def add_card_to_db():
         "level": request.form["level"],
         "user_id": session["user_id"],
     }
-    card.Card.add_card(data)
+    Card.add_card(data)
     return redirect("/dashboard")
 
 # edit a card in the database
@@ -78,7 +79,7 @@ def add_card_to_db():
 def edit_card_in_db(id):
     if "user_id" not in session:
         return redirect("/")
-    if not card.Card.validate_card(request.form):
+    if not Card.validate_card(request.form):
         return redirect(f"/edit/{id}")
 
     data = {
@@ -88,5 +89,5 @@ def edit_card_in_db(id):
         "level": request.form["level"],
         "id": id,
     }
-    card.Card.edit_card(data)
+    Card.edit_card(data)
     return redirect("/dashboard")

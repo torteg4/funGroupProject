@@ -4,10 +4,55 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='./css/styles.css')}}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>TOTALLY NOT A SCAM TM</title>
 </head>
 <body>
+    <section class="mainSection">
+        <div>
+            <h1 class="text-center my-4 text-dark">Welcome to Scam Central</h1>
+            <p class="invInk">Students.Can.Ace.Materials (totally not a scam site)</p>
+            <img src="{{ url_for('static', filename='pictures/QR code.png') }}" alt="qr" height="80px" width="80px">
+        </div>
+
+        <div class="actualCard d-flex justify-content-around">
+            <div class="card1">
+                <p>S++</p>
+                <img class="imgCard" src="{{ url_for('static', filename='pictures/rosie.png') }}" alt="Image 1" >
+                <div class="divCard1">
+                    <p>Project Lead</p>
+                    <a href="https://github.com/Ubaeby">github </a>
+                    <a href="https://www.linkedin.com/in/pocketfilledwithrosies/">LinkedIn</a>
+                </div>
+            </div>
+
+            <div class="card2"> 
+                <p>S++</p>
+                <img class="imgCard" src="{{ url_for('static', filename='pictures/tiffany.png') }}" alt="Image 2">
+                <div class="divCard1">
+                    <p>Project GOAT</p>
+                    <a href="https://www.linkedin.com/in/tiffany-ortega/">LinkedIn</a>
+                    <a href="https://github.com/torteg4">Github</a>
+                </div>
+            </div>
+
+            <div class="card3">
+                <p>Bait++</p>
+                <img class="imgCard" src="{{ url_for('static', filename='pictures/ten neices.png') }}" alt="Image 3"  >
+                <div class="divCard1">
+                    <p>Has 2 neices</p>
+                    <a href="https://github.com/uRedonkulous">Github </a>
+                    <a href="https://www.linkedin.com/in/thanh-nguyen-012950238/">LinkedIn</a>
+                </div>
+
+            </div>
+        </div>
+        
+        
+
+    </section>
     <h1 class="text-center my-4 text-dark">Welcome to --Insert Title--!</h1>
     <h3 class="text-center my-4 text-dark">-Register or login below!-</h3>
     <div class="my-5 mx-auto d-flex justify-content-around">
@@ -79,6 +124,8 @@
             </div>
             <input type="submit" value="Login" class="btn btn-success my-4">
         </form>
+
     </div>
+
 </body>
 </html>
