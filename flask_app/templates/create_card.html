@@ -36,9 +36,12 @@
     </div>
     <div class="form-group">
         <label for="stats">Stats:</label>
-        <input type="number" min="1" max="100" name="stats" value="{{stats}}" class="form-control" placeholder="1 - 100">
+        <input type="number" min="1" max="100" name="stats" value="{{stats}}" class="form-control" placeholder="1 - 100" id="stats-input">
     </div>
-
+    <div class="form-group">
+        <label for="picture">Picture:</label>
+        <input type="file" name="picture" class="form-control-file">
+    </div>
     <input type="submit" value="Create" class="my-4 btn btn-success">
     </form>
 
@@ -55,14 +58,19 @@
         $('#skills-input').on('input', function() {
             $('#skills-output').text($(this).val());
         });
+
+        $('#stats-input').on('input', function() {
+            $('#stats-output').text($(this).val());
+        });
     </script>
 
-    <div>
+    <div class="cardPreview">
         <h2>Preview</h2>
         <h3>-Your Photo Here-</h3>
                 <p id="name-output"></p>
                 <p id="bio-output"></p>
                 <p id="skills-output"></p>
+                <p id="stats-output"></p>
     </div>
 </body>
 </html>
