@@ -24,7 +24,7 @@ def register_user():
     data = {
         "first_name": request.form["first_name"],
         "last_name": request.form["last_name"],
-        # "tier": request.form["tier"],
+        "tier": request.form["tier"],
         "email": request.form["email"],
         "password": bcrypt.generate_password_hash(request.form["password"]),
     }

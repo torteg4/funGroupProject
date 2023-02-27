@@ -14,7 +14,7 @@ class User:
         self.id = data["id"]
         self.first_name = data["first_name"]
         self.last_name = data["last_name"]
-        # self.tier = data["tier"]
+        self.tier = data["tier"]
         self.email = data["email"]
         self.password = data["password"]
         self.created_at = data["created_at"]
@@ -25,9 +25,9 @@ class User:
     def register_user(cls, data):
         query = """
         INSERT INTO users
-        (first_name, last_name, email, password)
+        (first_name, last_name, tier, email, password)
         VALUES 
-        (%(first_name)s, %(last_name)s, %(email)s, %(password)s);
+        (%(first_name)s, %(last_name)s, %(tier)s, %(email)s, %(password)s);
         """
         return connectToMySQL(cls.db_name).query_db(query, data)
 
