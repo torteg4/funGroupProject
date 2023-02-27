@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Card Creation.</title>
 </head>
 <body>
@@ -21,22 +24,45 @@
     {% endwith %}
     <div class="form-group">
         <label for="name">Name:</label>
-        <input type="text" name="name" value="{{name}}" class="form-control">
+        <input type="text" name="name" value="{{name}}" id="cardName" class="form-control" placeholder="Input Name">
     </div>
     <div class="form-group">
         <label for="bio">Bio:</label>
-        <input type="text" name="bio" value="{{bio}}" class="form-control">
+        <textarea name="bio" value="{{bio}}" class="form-control" placeholder="Create Bio" id="bio-input"></textarea>
     </div>
     <div class="form-group">
         <label for="skills">Skills:</label>
-        <input type="text" name="skills" value="{{skills}}" class="form-control">
+        <textarea name="skills" value="{{skills}}" class="form-control" placeholder="Add Skills" id="skills-input"></textarea>
     </div>
     <div class="form-group">
         <label for="stats">Stats:</label>
-        <input type="number" min="1" max="100" name="stats" value="{{stats}}" class="form-control">
+        <input type="number" min="1" max="100" name="stats" value="{{stats}}" class="form-control" placeholder="1 - 100">
     </div>
 
     <input type="submit" value="Create" class="my-4 btn btn-success">
     </form>
+
+    <script>
+        // add event listeners to name, bio, and skills inputs
+        $('#cardName').on('input', function() {
+            $('#name-output').text($(this).val());
+        });
+
+        $('#bio-input').on('input', function() {
+            $('#bio-output').text($(this).val());
+        });
+
+        $('#skills-input').on('input', function() {
+            $('#skills-output').text($(this).val());
+        });
+    </script>
+
+    <div>
+        <h2>Preview</h2>
+        <h3>-Your Photo Here-</h3>
+                <p id="name-output"></p>
+                <p id="bio-output"></p>
+                <p id="skills-output"></p>
+    </div>
 </body>
 </html>
