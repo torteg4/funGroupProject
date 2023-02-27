@@ -11,11 +11,35 @@
 </head>
 <body>
     <section class="mainSection">
-        <div>
-            <h1 class="text-center my-4 text-dark">Welcome to Scam Central</h1>
-            <p class="invInk">Students.Can.Ace.Materials (totally not a scam site)</p>
+        <nav class="navDash d-flex justify-content-around">
+            <div>
+                <h1 class="text-center my-4 text-dark">Welcome to Scam Central</h1>
+            <p class="invInk">Software Coders At Making (totally not a scam site)</p>
+            </div>
             <img src="{{ url_for('static', filename='pictures/QR code.png') }}" alt="qr" height="80px" width="80px">
-        </div>
+
+            <form action="/login" method="post" class="text-dark d-flex">
+            {% with messages = get_flashed_messages(category_filter=['login']) %}
+                {% if messages %}
+                <div class="text-danger" role="alert">
+                    <strong>ALERT ERROR</strong>
+                        {% for message in messages %}
+                        <p>{{message}}</p>
+                        {% endfor %}
+                </div>
+                {% endif %}
+            {% endwith %}
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="text" name="email" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" name="password" class="form-control">
+                </div>
+                <input type="submit" value="Login" class="btn btn-success my-4">
+            </form>
+        </nav>
 
         <div class="actualCard d-flex justify-content-around">
             <div class="card1">
@@ -47,81 +71,24 @@
                     <a href="https://www.linkedin.com/in/thanh-nguyen-012950238/">LinkedIn</a>
                 </div>
             </div>
+
+            <div class ="card4">
+                <p>Cat++</p>
+                <img class="imgCard" src="{{ url_for('static', filename='pictures/matt.png') }}" alt="Image 4"  >
+                <div class="divCard1">
+                    <p>Matt the Catt</p>
+                    <a href="https://github.com/uRedonkulous">Github </a>
+                    <a href="https://www.linkedin.com/in/thanh-nguyen-012950238/">LinkedIn</a>
+                </div>
+            </div>
+
         </div>
     </section>
-
-    <h1 class="text-center my-4 text-dark">Welcome to --Insert Title--!</h1>
-    <h3 class="text-center my-4 text-dark">-Register or login below!-</h3>
-    <div class="my-5 mx-auto d-flex justify-content-around">
         
-        <form action="/register" method="post" class="col-3 enable-rounded bg-dark text-light">
-            <h2 class="text-light my-3">-First Time? Registration Below-</h2>
-        {% with messages = get_flashed_messages(category_filter=['register']) %}
-            {% if messages %}
-            <div class="alert alert-danger" role="alert">
-                <strong>ALERT ERROR</strong>
-                {% for message in messages %}
-                    <p>{{message}}</p>
-                {% endfor %}
-            </div>
-            {% endif %}
-        {% endwith %}
-        <div class="form-group">
-            <label for="first_name">First Name:</label>
-            <input type="text" name="first_name" value="{{first_name}}" class="form-control">
-        </div>
-        <div class="form-group">
-            <label for="last_name">Last Name:</label>
-            <input type="text" name="last_name" value="{{last_name}}" class="form-control">
-        </div>
-        <div class="form-group">
-            <label for="email">Email:</label>
-            <input type="text" name="email" value="{{email}}" class="form-control">
-        </div>
-        <div class="form-group">
-            <label for="tier">Account Type:</label>
-            <select name="tier" class="tier error">
-                <option disabled selected>-Select Tier-</option>
-                <option value="Instructor">Instructor</option>
-                <option value="TA">TA</option>
-                <option value="Alumni">Alumni</option>
-                <option value="Student">Student</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="password">Password:</label>
-            <input type="password" name="password" class="form-control">
-        </div>
-        <div class="form-group">
-            <label for="confirm">Confirm Password:</label>
-            <input type="password" name="confirm_password" class="form-control">
-        </div>
-        <input type="submit" value="Register" class="my-4 btn btn-primary">
-        </form>
-
-        <form action="/login" method="post" class="col-5 bg-dark text-light">
-            <h2 class="text-light my-3">-Welcome back, Login Here-</h2>
-        {% with messages = get_flashed_messages(category_filter=['login']) %}
-            {% if messages %}
-            <div class="alert alert-danger" role="alert">
-                <strong>ALERT ERROR</strong>
-                    {% for message in messages %}
-                    <p>{{message}}</p>
-                    {% endfor %}
-            </div>
-            {% endif %}
-        {% endwith %}
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="text" name="email" class="form-control">
-            </div>
-            <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" name="password" class="form-control">
-            </div>
-            <input type="submit" value="Login" class="btn btn-success my-4">
-        </form>
-
+    <p>Copyright @2023 SCAM</p>
+    <a href="https://github.com/Ubaeby/funGroupProject">
+        <img src="{{ url_for('static', filename='pictures/github-mark.png') }}" alt="Image 3" height="50px" width="50px">
+    </a>
     </div>
 
 </body>

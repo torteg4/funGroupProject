@@ -3,6 +3,7 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: 'Assistant', sans-serif;
 }
 
 .mainSection {
@@ -11,6 +12,35 @@
     width: 100%;
     text-align: center;
     background-color: #2196f3;
+}
+
+.section1 {
+  width: 50%;
+  height: 100vh;
+  background-image: url(../pictures/galaxy.png);
+  background-size: auto;
+}
+
+.section2 {
+  height: 100vh;
+  width: 50%;
+  background: linear-gradient(to right, rgba(255, 234, 0, 0.445), rgb(255, 250, 181,1) ) ;
+}
+
+.navDash {
+  border: 1px solid black;
+  height: 20%;
+}
+
+.regForm {
+  padding: 10px;
+  font-size: large;
+  font-weight: bold;
+  width: 50%;
+}
+
+.regForm:hover {
+  box-shadow: 0px 0px 20px black;
 }
 
 .invInk {
@@ -48,6 +78,15 @@
     box-shadow: 0px 20px 60px rgba(0,0,0, 0.5);
 }
 
+.card4 {
+  width: 250px;
+  height: 400px;
+  background: linear-gradient(#eba5db,rgb(220, 158, 210));
+  transition:.6s;
+  transform: rotatex(75deg) translatey(-200px) translatez(-100px);
+  box-shadow: 0px 20px 60px rgba(0,0,0, 0.5);
+}
+
 .card1:hover{
     transform: rotatex(0deg);
     transform: rotatez(0deg);
@@ -67,6 +106,14 @@
     transition:.6s;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
   }
+
+  .card4:hover{
+    transform: rotatex(0deg);
+    transform: rotatez(0deg);
+    transition:.6s;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+  }
+
   .card1 img{
     height: 65%;
     width: 100%;
@@ -82,9 +129,34 @@
     width: 100%;
   }
 
+  .card4 img {
+    height: 65%;
+    width: 100%;
+  }
   .divCard1 {
     height: 100%;
   }
+
+.logoImg {
+    height: 650px;
+    width: 650px;
+    margin-left: 150px;
+    animation: up-down 6s ease infinite;
+}
+
+@keyframes up-down {
+  0% {
+		transform: translateY(-3%);
+	}
+	
+	50% {
+		transform: translateY(3%);
+	}
+	
+	100% {
+		transform: translateY(-3%);
+	}
+}
 
 @keyframes invisibleInk {
     0% {color: #2196f3;}
