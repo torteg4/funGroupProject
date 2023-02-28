@@ -31,7 +31,7 @@
                 <div class="alert alert-danger" role="alert">
                     <strong>ALERT ERROR</strong>
                     {% for message in messages %}
-                        <p>{{message}}</p>
+                        <p class="err">{{message}}</p>
                     {% endfor %}
                 </div>
                 {% endif %}
@@ -67,7 +67,7 @@
                 <input type="password" name="confirm_password" class="form-control">
             </div>
             <input type="submit" value="Register" class="my-4 btn btn-primary">
-            <a class="link" href="/">Don't have an account?</a>
+            <a class="link" href="/">Have an account?</a>
             </form>
 
             

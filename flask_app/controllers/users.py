@@ -24,7 +24,7 @@ def users_card():
 @app.route("/register", methods=["POST"])
 def register_user():
     if not user.User.validate_registration(request.form):
-        return redirect("/")
+        return redirect("/Registration")
     data = {
         "first_name": request.form["first_name"],
         "last_name": request.form["last_name"],
