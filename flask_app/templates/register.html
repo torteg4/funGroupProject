@@ -31,7 +31,7 @@
                 <div class="alert alert-danger" role="alert">
                     <strong>ALERT ERROR</strong>
                     {% for message in messages %}
-                        <p>{{message}}</p>
+                        <p class="err">{{message}}</p>
                     {% endfor %}
                 </div>
                 {% endif %}
@@ -51,11 +51,10 @@
             <div class="form-group">
                 <label for="tier">Account Type:</label>
                 <select name="tier" class="tier error">
-                    <option disabled selected>-Select Tier-</option>
-                    <option value="Instructor">Instructor</option>
-                    <option value="TA">TA</option>
-                    <option value="Alumni">Alumni</option>
                     <option value="Student">Student</option>
+                    <option value="Alumni">Alumni</option>
+                    <option value="TA">TA</option>
+                    <option value="Instructor">Instructor</option>
                 </select>
             </div>
             <div class="form-group">
@@ -67,10 +66,13 @@
                 <input type="password" name="confirm_password" class="form-control">
             </div>
             <input type="submit" value="Register" class="my-4 btn btn-primary">
+            <a class="link" href="/">Have an account?</a>
             </form>
+
+            
         </section>
         
-
+        
     </div>
 
 </body>

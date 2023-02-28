@@ -75,6 +75,7 @@ class User:
                     "bio": user_card["bio"],
                     "skills": user_card["skills"],
                     "stats": user_card["stats"],
+                    "tier": user_card["cards.tier"],
                     "created_at": user_card["cards.created_at"],
                     "updated_at": user_card["cards.updated_at"]
                 }
@@ -91,9 +92,6 @@ class User:
         if len(form_data["last_name"]) < 2:
             flash("Last name must be 2 or more characters", "register")
             is_valid = False
-        # if len(form_data["tier"]) < 2:
-        #     flash("Tier must be 2 or more characters", "register")
-        #     is_valid = False
         if not EMAIL_REGEX.match(form_data['email']): 
             flash("Invalid email address!", "register")
             is_valid = False

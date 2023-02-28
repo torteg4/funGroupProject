@@ -1,17 +1,28 @@
 /* Hovering Cards by Karim jawhar https://codepen.io/kjawhar15/pen/zLBaPj */
 
 * {
-    margin: 0;
-    padding: 0;
-    font-family: 'Assistant', sans-serif;
+  margin: 0;
+  padding: 0;
+  font-family: 'Assistant', sans-serif;
+}
+
+#bodyLogin {
+  background-color: lightgray;
 }
 
 .mainSection {
-    border: 1px solid black;
-    height: 65vh;
-    width: 100%;
-    text-align: center;
-    background: radial-gradient(circle, #10aa84, #1d788f);
+  margin-top: 100px;
+  padding: 30px;
+  margin-left: 8%;
+  border-radius: 25px;
+  height: 80vh;
+  width: 85%;
+  text-align: center;
+  background-color: beige;
+}
+
+.navDash {
+  height: 10%;
 }
 
 .section1 {
@@ -24,12 +35,12 @@
 .section2 {
   height: 100vh;
   width: 50%;
-  background: linear-gradient(to right, rgba(255, 234, 0, 0.445), rgb(255, 250, 181,1) ) ;
+  background: linear-gradient(to right, rgba(255, 234, 0, 0.445), rgb(255, 250, 181, 1));
 }
 
-.navDash {
-  border: 1px solid black;
-  height: 20%;
+.vl {
+  border: 1px solid gray;
+  height: 30px;
 }
 
 .regForm {
@@ -39,126 +50,351 @@
   width: 50%;
 }
 
+.regButton {
+  text-decoration: none;
+  color: white;
+}
+
+.regButton:visited {
+  text-decoration: none;
+  color: white;
+}
+
+.regButton:hover {
+  text-decoration: none;
+  color: white;
+}
+
 .regForm:hover {
   box-shadow: 0px 0px 20px black;
 }
 
-.invInk {
-    color: #2196f3;
+.stateLogo {
+  margin-top: 20px;
+  width: 400px;
 }
 
-.invInk:hover {
-    animation: invisibleInk 200s ease;
+.invInk {
+  font-size: 60px;
+  color: black;
+  word-wrap: break-word;
+  text-align: left;
+  animation: invisibleInk 5s ease infinite;
 }
+
+
+.actualCard {
+  margin-top: 50px;
+  height: 40%;
+  width: 70%;
+}
+
+/* .imgCard {
+  opacity: 0;
+}
+
+.imgCard:hover {
+  opacity: 1;
+} */
+
 
 .card1 {
-    width: 250px;
-    height: 400px;
-    background: linear-gradient(rgb(225,150,58),rgb(227,144,91));
-    transition:.6s;
-    transform: rotatex(75deg) translatey(-200px) translatez(-100px);
-    box-shadow: 0px 20px 60px rgba(0,0,0, 0.5);
+  width: 180px;
+  height: 300px;
+  margin-top: 20px;
+  background: linear-gradient(rgb(225, 150, 58), rgb(227, 144, 91));
+  transition: .6s;
+  transform: rotatex(75deg) translatey(-200px) translatez(-100px);
+  box-shadow: 0px 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.card1:hover {
+  transform: rotatex(0deg);
+  transform: rotatez(0deg);
+  transition: .6s;
+  box-shadow: 0px 0px 20px rgba(225, 150, 58, 0.5);
 }
 
 .card2 {
-    width: 250px;
-    height: 400px;
-    background: linear-gradient(#745beb,rgb(220, 158, 210));
-    transition:.6s;
-    transform: rotatex(75deg) translatey(-200px) translatez(-100px);
-    box-shadow: 0px 20px 60px rgba(0,0,0, 0.5);
+  width: 180px;
+  height: 300px;
+  margin-top: 20px;
+  background: linear-gradient(#CDA93E, #EDD9A0);
+  transition: .6s;
+  transform: rotatex(75deg) translatey(-200px) translatez(-100px);
+  box-shadow: 0px 20px 60px rgba(0, 0, 0, 0.5);
 }
 
 .card3 {
-    width: 250px;
-    height: 400px;
-    background: linear-gradient(#eba5db,rgb(220, 158, 210));
-    transition:.6s;
-    transform: rotatex(75deg) translatey(-200px) translatez(-100px);
-    box-shadow: 0px 20px 60px rgba(0,0,0, 0.5);
+  width: 180px;
+  height: 300px;
+  margin-top: 20px;
+  background: linear-gradient(#eba5db, rgb(220, 158, 210));
+  transition: .6s;
+  transform: rotatex(75deg) translatey(-200px) translatez(-100px);
+  box-shadow: 0px 20px 60px rgba(0, 0, 0, 0.5);
 }
 
 .card4 {
-  width: 250px;
-  height: 400px;
-  background: linear-gradient(#eba5db,rgb(220, 158, 210));
-  transition:.6s;
+  width: 180px;
+  height: 300px;
+  margin-top: 20px;
+  background: linear-gradient(#eba5db, rgb(220, 158, 210));
+  transition: .6s;
   transform: rotatex(75deg) translatey(-200px) translatez(-100px);
-  box-shadow: 0px 20px 60px rgba(0,0,0, 0.5);
+  box-shadow: 0px 20px 60px rgba(0, 0, 0, 0.5);
 }
 
-.card1:hover{
-    transform: rotatex(0deg);
-    transform: rotatez(0deg);
-    transition:.6s;
-    box-shadow: 0px 0px 20px rgba(225,150,58, 0.5);
+.card2:hover {
+  transform: rotatex(0deg);
+  transform: rotatez(0deg);
+  transition: .6s;
+  box-shadow: 0px 0px 20px rgba(220, 158, 210, 0.3);
+}
 
-  }
-  .card2:hover{
-    transform: rotatex(0deg);
-    transform: rotatez(0deg);
-    transition:.6s;
-    box-shadow: 0px 0px 20px rgba(220, 158, 210, 0.3);
-  }
-  .card3:hover{
-    transform: rotatex(0deg);
-    transform: rotatez(0deg);
-    transition:.6s;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
-  }
+.card3:hover {
+  transform: rotatex(0deg);
+  transform: rotatez(0deg);
+  transition: .6s;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+}
 
-  .card4:hover{
-    transform: rotatex(0deg);
-    transform: rotatez(0deg);
-    transition:.6s;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
-  }
+.card4:hover {
+  transform: rotatex(0deg);
+  transform: rotatez(deg);
+  transition: .6s;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+}
 
-  .card1 img{
-    height: 65%;
-    width: 100%;
-  }
+.card1 img {
+  height: 65%;
+  width: 100%;
+}
 
-  .card2 img {
-    height: 65%;
-    width: 100%;
-  }
+.card2 img {
+  height: 65%;
+  width: 100%;
+}
 
-  .card3 img {
-    height: 65%;
-    width: 100%;
-  }
+.card3 img {
+  height: 65%;
+  width: 100%;
+}
 
-  .card4 img {
-    height: 65%;
-    width: 100%;
-  }
-  .divCard1 {
-    height: 100%;
-  }
+.card4 img {
+  height: 65%;
+  width: 100%;
+}
+
+.divCard1 {
+  height: 100%;
+}
+
+.link {
+  text-decoration: none;
+  color: #ffab00;
+}
+
+.link:hover {
+  text-decoration: none;
+  color: #ffab00;
+}
 
 .logoImg {
-    height: 650px;
-    width: 650px;
-    margin-left: 150px;
-    animation: up-down 6s ease infinite;
+  height: 650px;
+  width: 650px;
+  margin-left: 150px;
+  animation: up-down 6s ease infinite;
+}
+
+.err {
+  animation: shake 0.5s 2;
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+
+  70% {
+    transform: translate(3px, 1px) rotate(-1deg);
+  }
+
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
+  }
 }
 
 @keyframes up-down {
   0% {
-		transform: translateY(-3%);
-	}
-	
-	50% {
-		transform: translateY(3%);
-	}
-	
-	100% {
-		transform: translateY(-3%);
-	}
+    transform: translateY(-3%);
+  }
+
+  50% {
+    transform: translateY(3%);
+  }
+
+  100% {
+    transform: translateY(-3%);
+  }
 }
 
 @keyframes invisibleInk {
-    0% {color: #2196f3;}
-    1% {color: white;}
+  0% {
+    box-shadow: 10px 10px black;
+  }
+
+  50% {
+    box-shadow: -10px -10px black;
+  }
+
+  100% {
+    box-shadow: 10px 10px black;
+  }
+}
+
+
+
+/* VIEW CARD CSS */
+
+/* .cardsContainer {
+  display:flex;
+  justify-content: center;
+  /* margin: 25px;
+  width: 350px;
+  height: 200px;
+  outline: dashed 1px black; */
+/* } */
+
+.card {
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+  background-clip: border-box;
+  border: none;
+  /* changed */
+  border-radius: 0;
+  /* changed */
+}
+
+.card-body {
+  padding: 0;
+  /* changed */
+}
+
+.card-title {
+  margin-bottom: 0;
+  /* changed */
+}
+
+.card-subtitle {
+  margin-top: 0;
+  /* changed */
+  margin-bottom: 0;
+}
+
+.card-link:hover {
+  text-decoration: none;
+}
+
+.card-link+.card-link {
+  margin-left: 0;
+  /* changed */
+}
+
+.card-img {
+  width: 100%;
+  border-radius: 0;
+  /* changed */
+}
+
+ul {
+  margin-top: 0;
+  margin-bottom: 0;
+  /* changed */
+}
+
+
+#card-100.card {
+  font-family: 'Assistant', sans-serif;
+  display: flex;
+  justify-content: center;
+}
+
+#card-100 .card-title {
+  padding: 10px;
+  font-size: 10px;
+}
+
+
+#card-100 .card-body {
+  padding: 10px;
+  font-size: 100%;
+  line-height: normal;
+}
+
+#card-100 .card-subtitle {
+  font-size: inherit;
+}
+
+#card-100 .card-list-group {
+  padding: inherit;
+}
+
+#card-100 .card-list-group span {
+  padding: inherit;
+}
+
+#card-100 .card-text {
+  padding: inherit;
+}
+
+/* If you have a link in your card, add the styles here. If you don't have a link, leave it as it is */
+#card-100 .card-link {
+  display: none;
+}
+
+
+/* Making any card linkable without changing the styling, please don't change */
+
+.card-switch {
+  color: inherit;
+  text-decoration: none;
+}
+
+.card-switch:hover {
+  color: inherit;
+  text-decoration: none;
 }

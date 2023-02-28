@@ -11,6 +11,7 @@ class Card:
         self.bio = data["bio"]
         self.skills = data["skills"]
         self.stats = data["stats"]
+        self.tier = data["tier"]
         self.created_at = data["created_at"]
         self.updated_at = data["updated_at"]
         self.user = None
@@ -19,9 +20,9 @@ class Card:
     def add_card(cls, data):
         query = """
         INSERT INTO cards
-        (name, bio, skills, stats, user_id)
+        (name, bio, skills, stats, tier, user_id)
         VALUES
-        (%(name)s, %(bio)s, %(skills)s, %(stats)s, %(user_id)s);
+        (%(name)s, %(bio)s, %(skills)s, %(stats)s, %(tier)s, %(user_id)s);
         """
         return connectToMySQL(cls.db_name).query_db(query, data)
 
@@ -44,7 +45,7 @@ class Card:
                     "id": card_dictionary["users.id"],
                     "first_name": card_dictionary["first_name"],
                     "last_name": card_dictionary["last_name"],
-                    "tier": card_dictionary["tier"],
+                    "tier": card_dictionary["users.tier"],
                     "email": card_dictionary["email"],
                     "password": card_dictionary["password"],
                     "created_at": card_dictionary["users.created_at"],
@@ -78,7 +79,7 @@ class Card:
                 "id": card_dictionary["users.id"],
                 "first_name": card_dictionary["first_name"],
                 "last_name": card_dictionary["last_name"],
-                "tier": card_dictionary["tier"],
+                "tier": card_dictionary["users.tier"],
                 "email": card_dictionary["email"],
                 "password": card_dictionary["password"],
                 "created_at": card_dictionary["users.created_at"],
@@ -97,7 +98,8 @@ class Card:
         name = %(name)s,
         bio = %(bio)s,
         skills = %(skills)s,
-        stats = %(stats)s
+        stats = %(stats)s,
+        tier = %(tier)s
         WHERE
         id = %(id)s;
         """
