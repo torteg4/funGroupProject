@@ -102,7 +102,7 @@
     width: 180px;
     height: 300px;
     margin-top: 20px;
-    background: linear-gradient(#745beb,rgb(220, 158, 210));
+    background: linear-gradient(#CDA93E,#EDD9A0);
     transition:.6s;
     transform: rotatex(75deg) translatey(-200px) translatez(-100px);
     box-shadow: 0px 20px 60px rgba(0,0,0, 0.5);
