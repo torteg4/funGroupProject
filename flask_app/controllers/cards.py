@@ -79,7 +79,7 @@ def add_card_to_db():
 def edit_card_in_db(id):
     if "user_id" not in session:
         return redirect("/")
-    if not Card.validate_card(request.form):
+    if not card.Card.validate_card(request.form):
         return redirect(f"/edit/{id}")
 
     data = {
