@@ -232,8 +232,22 @@
     100% {box-shadow: 10px 10px black;}
 }
 
+
+
 /* VIEW CARD CSS */
+
+/* .cardsContainer {
+  display:flex;
+  justify-content: center;
+  /* margin: 25px;
+  width: 350px;
+  height: 200px;
+  outline: dashed 1px black; */
+/* } */
+
 .card {
+  display:flex;
+  justify-content: center;
   background-color: #fff;
   background-clip: border-box;
   border: none; /* changed */
@@ -271,34 +285,11 @@ ul {
   margin-bottom: 0; /* changed */
 }
 
-        /* Number of columns for different screen widths */
-
-@media (min-width: 576px) {
-    .card-columns {
-        -webkit-column-count: 1;
-        -moz-column-count: 1;
-        column-count: 1;
-    }
-}
-
-@media (min-width: 768px) {
-    .card-columns {
-        -webkit-column-count: 2;
-        -moz-column-count: 2;
-        column-count: 2;
-    }
-}
-
-@media (min-width: 992px) {
-    .card-columns {
-        -webkit-column-count: 3;
-        -moz-column-count: 3;
-        column-count: 3;
-    }
-}
 
 #card-100.card {
-  font-family: 'Assistant', sans-serif;;
+  font-family: 'Assistant', sans-serif;
+  display:flex;
+  justify-content: center;
 }
 
 #card-100 .card-title {
@@ -306,9 +297,6 @@ ul {
   font-size: 10px;
 }
 
-/* #card-100 img.card-img {
-
-} */
 
 #card-100 .card-body {
   padding: 10px;

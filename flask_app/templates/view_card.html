@@ -1,56 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <title>View Card</title>
-</head>
-<body>
-
-    <!-- Cards -->
-    <div class="card-columns">
-        <div id="card-100" class="card mb-4">
-                <h2 class="card-title">{{ this_card.name }}</h2>
-                <img class="card-img" src="http://placehold.it/700x500" alt="Card image cap">
-                <div  class="card-body">
-                    <h3 class="card-subtitle">{{ this_card.tier }}</h3>
-                    <ul class="card-list-group">
-                        <li><span class="card-list-group-item">SKILLS:</span> {{ this_card.skills }} </li>
-                        <li><span class="card-list-group-item">STATS:</span> {{ this_card.stats }}</li>
-                    </ul>
-                    <p class="card-text">{{ this_card.bio }}</p>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <title>View Card</title>
+    </head>
+    
+    <body>
+        <div class="cardsContainer m-4">
+            <!-- Cards -->
+            <div class="card-columns" >
+                <div id="card-100" class="card">
+                    <h2 class="card-title">{{ this_card.name }}</h2>
+                    <img class="card-img" src="http://placehold.it/700x500" alt="Card image cap">
+                    <div  class="card-body">
+                        <h3 class="card-subtitle">{{ this_card.tier }}</h3>
+                        <ul class="card-list-group">
+                            <li><span class="card-list-group-item">SKILLS:</span> {{ this_card.skills }} </li>
+                            <li><span class="card-list-group-item">STATS:</span> {{ this_card.stats }}</li>
+                        </ul>
+                        <p class="card-text">{{ this_card.bio }}</p>
+                    </div>
                 </div>
+                <a href="/edit/{{ this_card.id }}">Edit</a>
+                <a href="/destroy/{{ this_card.id }}">Delete</a>
+            </div>
         </div>
-        <a href="/edit/{{ this_card.id }}">Edit</a>
-        <a href="/destroy/{{ this_card.id }}">Delete</a>
-    </div>
 
-    <!-- <table>
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Bio</th>
-                <th>Skills</th>
-                <th>Stats</th>
-                <th> </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>{{ this_card.name }}</td>
-                <td>{{ this_card.bio }}</td>
-                <td>{{ this_card.skills }}</td>
-                <td>{{ this_card.stats }}</td>
-                <td>
-                    <a href="/edit/{{ this_card.id }}">Edit</a>
-                    <a href="/destroy/{{ this_card.id }}">Delete</a>
-                </td>
-            </tr>
-        </tbody>
-    </table> -->
-    <!-- {% for card in this_user.card %} -->
-    <!-- {% endfor %} -->
-</body>
+    </body>
 </html>
