@@ -10,7 +10,7 @@
     height: 65vh;
     width: 100%;
     text-align: center;
-    background-color: #2196f3;
+    background: radial-gradient(circle, #10aa84, #1d788f);
 }
 
 .invInk {
