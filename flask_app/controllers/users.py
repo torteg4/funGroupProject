@@ -8,6 +8,10 @@ bcrypt = Bcrypt(app)
 def login_page():
     return render_template("login.html")
 
+@app.route("/Registration")
+def reg_page():
+    return render_template("register.html")
+
 @app.route("/user/cards")
 def users_card():
     if "user_id" not in session:
