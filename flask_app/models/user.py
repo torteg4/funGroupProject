@@ -92,9 +92,6 @@ class User:
         if len(form_data["last_name"]) < 2:
             flash("Last name must be 2 or more characters", "register")
             is_valid = False
-        # if len(form_data["tier"]) < 2:
-        #     flash("Tier must be 2 or more characters", "register")
-        #     is_valid = False
         if not EMAIL_REGEX.match(form_data['email']): 
             flash("Invalid email address!", "register")
             is_valid = False
