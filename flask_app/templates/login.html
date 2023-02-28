@@ -9,87 +9,103 @@
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>TOTALLY NOT A SCAM TM</title>
 </head>
-<body>
+<body id="bodyLogin">
     <section class="mainSection">
-        <nav class="navDash d-flex justify-content-around">
-            <div>
-                <h1 class="text-center my-4 text-dark">Welcome to Scam Central</h1>
-            <p class="invInk">Software Coders At Making (totally not a scam site)</p>
+        <nav class="navDash d-flex justify-content-between">
+            <div class="d-flex align-items-center">
+                <img class="qr" src="{{ url_for('static', filename='pictures/QR code.png') }}" alt="qr" height="50px" width="50px">
+                <h1 class="text-center my-4 text-dark">SCAM Central</h1>
             </div>
-            <img src="{{ url_for('static', filename='pictures/QR code.png') }}" alt="qr" height="80px" width="80px">
+            <div class="d-flex align-items-center">
+               <button class="btn btn-dark m-2"> <a class="regButton" href="/Registration">Register</a></button> 
 
-            <form action="/login" method="post" class="text-dark d-flex">
-            {% with messages = get_flashed_messages(category_filter=['login']) %}
-                {% if messages %}
-                <div class="text-danger" role="alert">
-                    <strong>ALERT ERROR</strong>
-                        {% for message in messages %}
-                        <p>{{message}}</p>
-                        {% endfor %}
-                </div>
-                {% endif %}
-            {% endwith %}
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="text" name="email" class="form-control">
-                </div>
-                <div class="form-group">
-                    <label for="password">Password:</label>
-                    <input type="password" name="password" class="form-control">
-                </div>
-                <input type="submit" value="Login" class="btn btn-success my-4">
-            </form>
+               <div class="vl m-2">
+               </div>
+                <form action="/login" method="post" class="text-dark d-flex">
+                {% with messages = get_flashed_messages(category_filter=['login']) %}
+                    {% if messages %}
+                    <div class="text-danger" role="alert">
+                            {% for message in messages %}
+                            <p class="err align-middle">{{message}}</p>
+                            {% endfor %}
+                    </div>
+                    {% endif %}
+                {% endwith %}
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="text" name="email" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" name="password" class="form-control">
+                    </div>
+                    <input type="submit" value="Login" class="btn btn-success my-4 m-3">
+                </form>
+            </div>
+           
         </nav>
 
-        <div class="actualCard d-flex justify-content-around">
-            <div class="card1">
-                <p>S++</p>
-                <img class="imgCard" src="{{ url_for('static', filename='pictures/rosie.png') }}" alt="Image 1" >
-                <div class="divCard1">
-                    <p>Project Lead</p>
-                    <a href="https://github.com/Ubaeby">github </a>
-                    <a href="https://www.linkedin.com/in/pocketfilledwithrosies/">LinkedIn</a>
-                </div>
+        <div class="d-flex justify-content-between">
+            <div class="stateLogo">
+                <p class="invInk">Software Coders At Making</p>
             </div>
-
-            <div class="card2"> 
-                <p>S++</p>
-                <img class="imgCard" src="{{ url_for('static', filename='pictures/tiffany.png') }}" alt="Image 2">
-                <div class="divCard1">
-                    <p>Project GOAT</p>
-                    <a href="https://www.linkedin.com/in/tiffany-ortega/">LinkedIn</a>
-                    <a href="https://github.com/torteg4">Github</a>
+    
+            <div class="actualCard d-flex justify-content-around">
+                <div class="card1">
+                    <p>S++</p>
+                    <img class="imgCard" src="{{ url_for('static', filename='pictures/rosie.png') }}" alt="Image 1" >
+                    <div class="divCard1">
+                        <p>Project Lead</p>
+                        <a href="https://github.com/Ubaeby">github </a>
+                        <a href="https://www.linkedin.com/in/pocketfilledwithrosies/">LinkedIn</a>
+                    </div>
                 </div>
-            </div>
-
-            <div class="card3">
-                <p>Bait++</p>
-                <img class="imgCard" src="{{ url_for('static', filename='pictures/ten neices.png') }}" alt="Image 3"  >
-                <div class="divCard1">
-                    <p>Has 2 neices</p>
-                    <a href="https://github.com/uRedonkulous">Github </a>
-                    <a href="https://www.linkedin.com/in/thanh-nguyen-012950238/">LinkedIn</a>
+    
+                <div class="card2"> 
+                    <p>S++</p>
+                    <img class="imgCard" src="{{ url_for('static', filename='pictures/tiffany.png') }}" alt="Image 2">
+                    <div class="divCard1">
+                        <p>Project GOAT</p>
+                        <a href="https://www.linkedin.com/in/tiffany-ortega/">LinkedIn</a>
+                        <a href="https://github.com/torteg4">Github</a>
+                    </div>
                 </div>
-            </div>
-
-            <div class ="card4">
-                <p>Cat++</p>
-                <img class="imgCard" src="{{ url_for('static', filename='pictures/matt.png') }}" alt="Image 4"  >
-                <div class="divCard1">
-                    <p>Matt the Catt</p>
-                    <a href="https://github.com/uRedonkulous">Github </a>
-                    <a href="https://www.linkedin.com/in/thanh-nguyen-012950238/">LinkedIn</a>
+    
+                <div class="card3">
+                    <p>Bait++</p>
+                    <img class="imgCard" src="{{ url_for('static', filename='pictures/ten neices.png') }}" alt="Image 3"  >
+                    <div class="divCard1">
+                        <p>Has 2 neices</p>
+                        <a href="https://github.com/uRedonkulous">Github </a>
+                        <a href="https://www.linkedin.com/in/thanh-nguyen-012950238/">LinkedIn</a>
+                    </div>
                 </div>
+    
+                <div class ="card4">
+                    <p>Cat++</p>
+                    <img class="imgCard" src="{{ url_for('static', filename='pictures/matt.png') }}" alt="Image 4"  >
+                    <div class="divCard1">
+                        <p>Matt the Catt</p>
+                        <a href="https://github.com/uRedonkulous">Github </a>
+                        <a href="https://www.linkedin.com/in/thanh-nguyen-012950238/">LinkedIn</a>
+                    </div>
+                </div>
+    
             </div>
 
         </div>
-    </section>
         
-    <p>Copyright @2023 SCAM</p>
-    <a href="https://github.com/Ubaeby/funGroupProject">
-        <img src="{{ url_for('static', filename='pictures/github-mark.png') }}" alt="Image 3" height="50px" width="50px">
+        <div class="d-flex">
+            <p>Copyright @2023 SCAM</p>
+        <a href="https://github.com/Ubaeby/funGroupProject">
+        <img src="{{ url_for('static', filename='pictures/github-mark.png') }}" alt="Image 3" height="25px" width="25px">
+        </div>
+        
     </a>
     </div>
+    </section>
+        
+    
 
 </body>
 </html>
