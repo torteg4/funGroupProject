@@ -53,7 +53,7 @@ def delete_card(id):
     data = {
         "id": id,
     }
-    Card.delete_card(data)
+    card.Card.delete_card(data)
     return redirect("/dashboard")
 
 # add a card to database
@@ -69,6 +69,7 @@ def add_card_to_db():
         "bio": request.form["bio"],
         "skills": request.form["skills"],
         "stats": request.form["stats"],
+        "tier": request.form["tier"],
         "user_id": session["user_id"],
     }
     card.Card.add_card(data)
@@ -79,7 +80,7 @@ def add_card_to_db():
 def edit_card_in_db(id):
     if "user_id" not in session:
         return redirect("/")
-    if not Card.validate_card(request.form):
+    if not card.Card.validate_card(request.form):
         return redirect(f"/edit/{id}")
 
     data = {
@@ -87,6 +88,7 @@ def edit_card_in_db(id):
         "bio": request.form["bio"],
         "skills": request.form["skills"],
         "stats": request.form["stats"],
+        "tier": request.form["tier"],
         "id": id,
     }
     card.Card.edit_card(data)

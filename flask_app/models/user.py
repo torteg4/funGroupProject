@@ -75,6 +75,7 @@ class User:
                     "bio": user_card["bio"],
                     "skills": user_card["skills"],
                     "stats": user_card["stats"],
+                    "tier": user_card["cards.tier"],
                     "created_at": user_card["cards.created_at"],
                     "updated_at": user_card["cards.updated_at"]
                 }
