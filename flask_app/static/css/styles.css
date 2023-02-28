@@ -6,12 +6,23 @@
     font-family: 'Assistant', sans-serif;
 }
 
+#bodyLogin {
+  background-color: lightgray;
+}
+
 .mainSection {
-    border: 1px solid black;
-    height: 65vh;
-    width: 100%;
+    margin-top: 100px;
+    padding: 30px;
+    margin-left: 8%;
+    border-radius: 25px;
+    height: 80vh;
+    width: 85%;
     text-align: center;
-    background-color: #2196f3;
+    background-color: beige;
+}
+
+.navDash {
+  height: 10%;
 }
 
 .section1 {
@@ -27,9 +38,9 @@
   background: linear-gradient(to right, rgba(255, 234, 0, 0.445), rgb(255, 250, 181,1) ) ;
 }
 
-.navDash {
-  border: 1px solid black;
-  height: 20%;
+.vl {
+  border: 1px solid gray;
+  height: 30px;
 }
 
 .regForm {
@@ -39,21 +50,48 @@
   width: 50%;
 }
 
+.regButton {
+  text-decoration: none;
+  color: white;
+}
+
+.regButton:visited {
+  text-decoration: none;
+  color: white;
+}
+
+.regButton:hover {
+  text-decoration:none;
+  color:white;
+}
+
 .regForm:hover {
   box-shadow: 0px 0px 20px black;
 }
 
+.stateLogo {
+  margin-top: 20px;
+  width: 400px;
+}
+
 .invInk {
-    color: #2196f3;
+  font-size: 60px;
+  color: black;
+  word-wrap: break-word;
+  text-align: left;
+  animation: invisibleInk 5s ease infinite;
 }
 
-.invInk:hover {
-    animation: invisibleInk 200s ease;
-}
 
+.actualCard {
+  margin-top: 50px;
+  height: 40%;
+  width: 70%;
+}
 .card1 {
-    width: 250px;
-    height: 400px;
+    width: 180px;
+    height: 300px;
+    margin-top: 20px;
     background: linear-gradient(rgb(225,150,58),rgb(227,144,91));
     transition:.6s;
     transform: rotatex(75deg) translatey(-200px) translatez(-100px);
@@ -61,8 +99,9 @@
 }
 
 .card2 {
-    width: 250px;
-    height: 400px;
+    width: 180px;
+    height: 300px;
+    margin-top: 20px;
     background: linear-gradient(#745beb,rgb(220, 158, 210));
     transition:.6s;
     transform: rotatex(75deg) translatey(-200px) translatez(-100px);
@@ -70,8 +109,9 @@
 }
 
 .card3 {
-    width: 250px;
-    height: 400px;
+    width: 180px;
+    height: 300px;
+    margin-top: 20px;
     background: linear-gradient(#eba5db,rgb(220, 158, 210));
     transition:.6s;
     transform: rotatex(75deg) translatey(-200px) translatez(-100px);
@@ -79,8 +119,9 @@
 }
 
 .card4 {
-  width: 250px;
-  height: 400px;
+  width: 180px;
+  height: 300px;
+  margin-top: 20px;
   background: linear-gradient(#eba5db,rgb(220, 158, 210));
   transition:.6s;
   transform: rotatex(75deg) translatey(-200px) translatez(-100px);
@@ -137,11 +178,38 @@
     height: 100%;
   }
 
+  .link {
+    text-decoration: none;
+    color: #ffab00;
+  }
+  .link:hover {
+    text-decoration: none;
+    color: #ffab00;
+  }
+
 .logoImg {
     height: 650px;
     width: 650px;
     margin-left: 150px;
     animation: up-down 6s ease infinite;
+}
+
+.err {
+  animation: shake 0.5s 2;
+}
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
 
 @keyframes up-down {
@@ -159,8 +227,9 @@
 }
 
 @keyframes invisibleInk {
-    0% {color: #2196f3;}
-    1% {color: white;}
+    0% {box-shadow: 10px 10px black;}
+    50% {box-shadow: -10px -10px black;}
+    100% {box-shadow: 10px 10px black;}
 }
 
 /* VIEW CARD CSS */
