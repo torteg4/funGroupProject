@@ -33,7 +33,6 @@ def register_user():
         "password": bcrypt.generate_password_hash(request.form["password"]),
     }
     session["user_id"] = user.User.register_user(data)
-
     return redirect("/dashboard")
 
 @app.route("/login", methods=["POST"])
@@ -43,7 +42,6 @@ def log_user_in():
         return redirect("/")
     session["user_id"] = found_user_or_false.id
     return redirect("/dashboard")
-
 
 @app.route("/logout")
 def logout_user():
