@@ -1,6 +1,16 @@
+# import imghdr
+# import os
 from flask_app import app
 from flask import render_template, request, redirect, session
 from flask_app.models import user, card
+
+# def validate_image(stream):
+#     header = stream.read(512)
+#     stream.seek(0) 
+#     format = imghdr.what(None, header)
+#     if not format:
+#         return None
+#     return '.' + (format if format != 'jpeg' else 'jpg')
 
 # Show all cards current user has created
 @app.route("/dashboard")
@@ -73,6 +83,8 @@ def add_card_to_db():
         "user_id": session["user_id"],
     }
     card.Card.add_card(data)
+
+
     return redirect("/dashboard")
 
 # edit a card in the database

@@ -9,12 +9,15 @@
     </head>
     
     <body>
+        <div class="nav_bar">
+            <a href="/dashboard">Back to Dashboard</a>
+        </div>
         <div class="cardsContainer m-4">
             <!-- Cards -->
             <div class="card-columns" >
                 <div id="card-100" class="card">
                     <h2 class="card-title">{{ this_card.name }}</h2>
-                    <img class="card-img" src="http://placehold.it/700x500" alt="Card image cap">
+                    <img class="card-img" src="../static/pictures/{{filename}}" alt="Card image cap">
                     <div  class="card-body">
                         <h3 class="card-subtitle">{{ this_card.tier }}</h3>
                         <ul class="card-list-group">
@@ -24,10 +27,14 @@
                         <p class="card-text">{{ this_card.bio }}</p>
                     </div>
                 </div>
-                <a href="/edit/{{ this_card.id }}">Edit</a>
-                <a href="/destroy/{{ this_card.id }}">Delete</a>
+
+                <a href="/dashboard">Dashboard</a>
+                
+                {% if this_card.user.id == session["user_id"] %}
+                    <a href="/edit/{{ this_card.id }}">Edit</a>
+                    <a href="/cards/delete/{{ this_card.id }}">Delete</a>
+                {% endif %}
             </div>
         </div>
-
     </body>
 </html>

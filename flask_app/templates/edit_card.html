@@ -10,9 +10,10 @@
     <title>Edit Card</title>
 </head>
 <body>
+
     <form action="/cards/edit_in_db/{{this_card.id}}" method="post" enctype="multipart/form-data" class="col-3 enable-rounded bg-dark text-light">
         <h2 class="text-light my-3">-Edit Card-</h2>
-        {% with messages = get_flashed_messages(category_filter=['validate_card']) %}
+        {% with messages = get_flashed_messages() %}
         {% if messages %}
         <div class="alert alert-danger" role="alert">
             <strong>ALERT ERROR</strong>
@@ -37,6 +38,15 @@
     <div class="form-group">
         <label for="stats">Stats:</label>
         <input type="number" min="1" max="100" name="stats" value="{{this_card.stats}}" class="form-control" placeholder="1 - 100">
+    </div>
+    <div class="form-group">
+        <label for="tier">Card Tier:</label>
+        <select name="tier" class="form-control">
+            <option value="Student">Student</option>
+            <option value="Alumni">Alumni</option>
+            <option value="TA">TA</option>
+            <option value="Instructor">Instructor</option>
+        </select>
     </div>
     <div class="form-group">
         <label for="picture">Picture:</label>
