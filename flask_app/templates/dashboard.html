@@ -19,18 +19,19 @@
                 <h2>All Cards</h2>
                     <ul>
                         {% for card in user_cards %}
-                        <li>{{ card.name }}</li>
-                        <li>{{ card.bio }}</li>
-                        <li>{{ card.tier }}</li>
-                        <li>{{ card.skills }}</li>
-                        <li>{{ card.stats }}</li>
-                        <a href="/show/{{ card.id }}">View</a>
-                        <a href="/edit/{{ card.id }}">Edit</a>
-                        <a href="cards/delete/{{ card.id }}">Delete</a>
-                {% endfor %}</ul>
-                {% else %}
-                    <p>No cards found.</p>
-                {% endif %}
+                            <li>{{ card.name }}</li>
+                            <li>{{ card.bio }}</li>
+                            <li>{{ card.tier }}</li>
+                            <li>{{ card.skills }}</li>
+                            <li>{{ card.stats }}</li>
+                            <a href="/show/{{ card.id }}">View</a>
+                        {% if card.user.id == this_user.id %}
+                            <a href="/edit/{{ card.id }}">Edit</a>
+                            <a href="cards/delete/{{ card.id }}">Delete</a>
+                        {% endif %}
+                    {% endfor %}
+                    </ul>
+            {% endif %}
         </div>
     </div>
 </body>
