@@ -21,6 +21,7 @@
                         {% for card in user_cards %}
                         <li>{{ card.name }}</li>
                         <li>{{ card.bio }}</li>
+                        <li>{{ card.tier }}</li>
                         <li>{{ card.skills }}</li>
                         <li>{{ card.stats }}</li>
                         <a href="/show/{{ card.id }}">View</a>
