@@ -10,6 +10,9 @@
     <title>Edit Card</title>
 </head>
 <body>
+    <div class="nav_bar">
+        <a href="/dashboard">Back to Dashboard</a>
+    </div>
     <form action="/cards/edit_in_db/{{this_card.id}}" method="post" enctype="multipart/form-data" class="col-3 enable-rounded bg-dark text-light">
         <h2 class="text-light my-3">-Edit Card-</h2>
         {% with messages = get_flashed_messages() %}
