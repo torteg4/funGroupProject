@@ -34,10 +34,33 @@
             </ul>
             
         </div>
-        <div class="cardsContainer m-4">
-            <div class="card-columns" >
-                {% if cards %}
+
+        <div class="container">
+            {% if cards %}
                 <h2>All Cards</h2>
+
+                        {% for card in cards %}
+                        <p>{{ card.name }}</p>
+                        <p>{{ card.bio }}</p>
+                        <div>
+                            <p>Stats:
+                                <div class="pBarGray">
+                                    <div class="p-bar" style="width:{{ card.stats}}%">{{card.stats}}         
+                                    </div>
+                                </div> 
+                            </p>   
+                        </div>
+                        
+                        <p>{{ card.skills }}</p>
+                        <a href="/show/{{ card.id }}">View</a>
+                        {% if card.user.id == this_user.id %}
+                        <a href="/edit/{{ card.id }}">Edit</a>
+                        <a href="cards/delete/{{ card.id }}">Delete</a>
+                        {% endif %}
+                {% endfor %}
+                {% else %}
+                    <p>No cards found.</p>
+                {% endif %}
         </div>
     </div>
 </body>
