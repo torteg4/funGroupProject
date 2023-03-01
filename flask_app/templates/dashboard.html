@@ -9,13 +9,27 @@
 <body>
     <div class="container">
         <h1 class="text-center">Welcome {{ this_user.first_name }}!</h1>
-        <div class="nav_bar"> // Nav Bar--
+        <div class="nav_bar">
             <!-- <a href="/cards/draw">Draw a card</a> -->
             <a href="/new/card">Create a Card, yo</a>
             <a href="/logout">Logout</a>
         </div>
         <div class="container">
-
+            {% if user_cards %}
+                <h2>All Cards</h2>
+                    <ul>
+                        {% for card in user_cards %}
+                        <li>{{ card.name }}</li>
+                        <li>{{ card.bio }}</li>
+                        <li>{{ card.skills }}</li>
+                        <li>{{ card.stats }}</li>
+                        <a href="/show/{{ card.id }}">View</a>
+                        <a href="/edit/{{ card.id }}">Edit</a>
+                        <a href="cards/delete/{{ card.id }}">Delete</a>
+                {% endfor %}</ul>
+                {% else %}
+                    <p>No cards found.</p>
+                {% endif %}
         </div>
     </div>
 </body>

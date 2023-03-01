@@ -2,6 +2,7 @@ from flask_app import app
 from flask import render_template, request, redirect, session
 from flask_app.models import user, card
 
+# Show all cards current user has created
 @app.route("/dashboard")
 def all_cards_page():
     if "user_id" not in session:
@@ -9,8 +10,9 @@ def all_cards_page():
     data = {
         "id": session["user_id"]
     }
-    return render_template("dashboard.html", this_user= user.User.get_user_by_id(data))
-
+    this_user = user.User.get_user_by_id(data)
+    user_cards = card.Card.get_all_cards()
+    return render_template("dashboard.html", this_user=this_user, user_cards=user_cards)
 
 # route that will show the new card page
 @app.route("/new/card")
