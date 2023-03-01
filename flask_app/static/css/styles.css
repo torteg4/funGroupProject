@@ -285,8 +285,6 @@
   }
 }
 
-
-
 /* VIEW CARD CSS */
 
 /* .cardsContainer {
@@ -397,4 +395,133 @@ ul {
 .card-switch:hover {
   color: inherit;
   text-decoration: none;
+}
+
+
+
+/* Dashboard CSS */
+
+#dashBody {
+  background-color: lightgray;
+}
+
+.wrapper {
+  background-color: beige;
+}
+
+#checkbox, .sideButton span { /* Hide the checkbox input & word "Menu" in the button */
+  display: none;
+}
+
+.sideButton {
+  display: block;
+  background-color: #247D9E;
+  color: #fff;
+  width: 55px;
+  height: 50px;
+  line-height: 50px;
+  padding: 0 20px;
+  cursor: pointer;
+  transition: width .3s ease-in-out;
+}
+
+.sidebar {
+  background-color: #2B2E33;
+    position: fixed;
+    width: 200px;
+    height: 25%;
+    z-index: 1111;
+    transition: transform .3s ease-in-out;
+    transform: translateX(-250px);
+}
+
+.sidebar ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.sidebar ul a {
+  position: relative;
+  text-decoration: none;
+  display: block;
+  background-color: transparent;
+  color: #BAB5BD;
+  padding: 15px 20px;
+  font-size: 16px;
+}
+
+.sidebar ul a li i {
+  margin-right: 15px;
+}
+
+.sidebar ul a:nth-child(2)::after, .sidebar ul a:nth-child(3)::after {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  margin-top: -9px;
+  color: #fff;
+  font-size: 13px;
+  padding: 0 7px;
+  height: 18px;
+  line-height: 18px;
+  text-align: center;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+.sidebar ul a:nth-child(2)::after {
+  content: "You sure?";
+  background-color: tomato;
+}
+
+.sidebar ul a:nth-child(3)::after {
+  content: "2";
+  background-color: #247D9E;
+}
+
+/* Add margin to the icon in the second item */
+.sidebar ul a:nth-child(2) li i {
+  margin-left: 4px;
+  margin-right: 19px;
+}
+
+.sidebar ul a:hover, .sidebar ul a.active {
+  background-color: #161920;
+  color: #fff;
+}
+
+.sidebar ul a:hover::before, .sidebar ul a.active::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  background-color: #247D9E;
+  width: 4px;
+  height: 100%;
+}
+/* Sidebar - ends */
+
+/* Effect of showing the sidebar - starts */
+#checkbox:checked ~ .sidebar {
+  transform: translateX(0);
+}
+
+#checkbox:checked + .sideButton {
+  width: 200px;
+  padding: 0 20px;
+}
+
+#checkbox:checked + .sideButton span { /* Show again the word "Menu" in the button */
+  display: inline;
+}
+/* Effect of showing the sidebar - ends */
+
+.p-bar {
+  background-color: lightblue;
+}
+
+.pBarGray {
+  background-color: gray;
 }
