@@ -9,7 +9,7 @@ def all_cards_page():
     data = {
         "id": session["user_id"]
     }
-    return render_template("dashboard.html", this_user= user.User.get_user_by_id(data))
+    return render_template("dashboard.html", this_user= user.User.get_user_by_id(data), cards = card.Card.get_all_cards())
 
 
 # route that will show the new card page

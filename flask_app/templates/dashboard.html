@@ -15,7 +15,14 @@
             <a href="/logout">Logout</a>
         </div>
         <div class="container">
-
+            {% for card in cards%}
+            <div>
+                <p>{{card.name}}</p>
+                <p>{{card.skills}}</p>
+                <p>{{card.stats}}</p>
+                <p>{{card.tier}}</p>
+            </div>
+            {% endfor %}
         </div>
     </div>
 </body>
