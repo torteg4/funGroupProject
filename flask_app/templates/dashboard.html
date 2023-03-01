@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <title>Dashboard</title>
 </head>
 <body>
@@ -14,25 +15,32 @@
             <a href="/new/card">Create a Card, yo</a>
             <a href="/logout">Logout</a>
         </div>
-        <div class="container">
-            {% if cards %}
+        <div class="cardsContainer m-4">
+            <div class="card-columns" >
+                {% if cards %}
                 <h2>All Cards</h2>
-                    <ul>
-                        {% for card in cards %}
-                            <li>{{ card.name }}</li>
-                            <li>{{ card.bio }}</li>
-                            <li>{{ card.tier }}</li>
-                            <li>{{ card.skills }}</li>
-                            <li>{{ card.stats }}</li>
-                            <a href="/show/{{ card.id }}">View</a>
-                            
-                        {% if card.user.id == this_user.id %}
-                            <a href="/edit/{{ card.id }}">Edit</a>
-                            <a href="cards/delete/{{ card.id }}">Delete</a>
-                        {% endif %}
-                    {% endfor %}
-                    </ul>
-            {% endif %}
+                {% for card in cards %}
+                <div id="card-100" class="card">
+                    <h2 class="card-title">{{ card.name }}</h2>
+                    <img class="card-img" src="../static/pictures/{{filename}}" alt="Card image cap">
+                    <div  class="card-body">
+                        <h3 class="card-subtitle">{{ card.tier }}</h3>
+                        <ul class="card-list-group">
+                            <li><span class="card-list-group-item">SKILLS:</span> {{ card.skills }} </li>
+                            <li><span class="card-list-group-item">STATS:</span> {{ card.stats }}</li>
+                        </ul>
+                    <p class="card-text">{{ card.bio }}</p>
+                    </div>
+                </div>
+                        <a href="/show/{{ card.id }}">View</a>
+                    {% if card.user.id == this_user.id %}
+                        <a href="/edit/{{ card.id }}">Edit</a>
+                        <a href="cards/delete/{{ card.id }}">Delete</a>
+                    {% endif %}
+                {% endfor %}
+                {% endif %}
+                </div>
+            </div>
         </div>
     </div>
 </body>
