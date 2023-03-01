@@ -4,35 +4,63 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='./css/styles.css')}}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Dashboard</title>
 </head>
-<body>
-    <div class="container">
+<body id="dashBody">
+    <div class="wrapper">
         <h1 class="text-center">Welcome {{ this_user.first_name }}!</h1>
-        <div class="nav_bar">
+
+        <input type="checkbox" id="checkbox">
+        <label class="sideButton" for="checkbox"><i class="fa fa-bars">
+        </i> <span>Menu</span></label>
+        <div class="sidebar">
             <!-- <a href="/cards/draw">Draw a card</a> -->
-            <a href="/new/card">Create a Card, yo</a>
-            <a href="/logout">Logout</a>
+            <ul>
+                <a href="/new/card">
+                    <li>
+                        <i class="fa fa-card"></i>
+                        Create a Card
+                    </li>
+                </a>   
+                <a href="/logout">
+                    <li>
+                        <i class="fa fa-logout"></i>
+                        Logout
+                    </li>
+                </a>  
+            </ul>
+            
         </div>
+
         <div class="container">
             {% if cards %}
                 <h2>All Cards</h2>
-                    <ul>
+
                         {% for card in cards %}
-                            <li>{{ card.name }}</li>
-                            <li>{{ card.bio }}</li>
-                            <li>{{ card.tier }}</li>
-                            <li>{{ card.skills }}</li>
-                            <li>{{ card.stats }}</li>
-                            <a href="/show/{{ card.id }}">View</a>
-                            
+                        <p>{{ card.name }}</p>
+                        <p>{{ card.bio }}</p>
+                        <div>
+                            <p>Stats:
+                                <div class="pBarGray">
+                                    <div class="p-bar" style="width:{{ card.stats}}%">{{card.stats}}         
+                                    </div>
+                                </div> 
+                            </p>   
+                        </div>
+                        
+                        <p>{{ card.skills }}</p>
+                        <a href="/show/{{ card.id }}">View</a>
                         {% if card.user.id == this_user.id %}
-                            <a href="/edit/{{ card.id }}">Edit</a>
-                            <a href="cards/delete/{{ card.id }}">Delete</a>
+                        <a href="/edit/{{ card.id }}">Edit</a>
+                        <a href="cards/delete/{{ card.id }}">Delete</a>
                         {% endif %}
-                    {% endfor %}
-                    </ul>
-            {% endif %}
+                {% endfor %}
+                {% else %}
+                    <p>No cards found.</p>
+                {% endif %}
         </div>
     </div>
 </body>
