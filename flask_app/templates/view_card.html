@@ -24,8 +24,13 @@
                         <p class="card-text">{{ this_card.bio }}</p>
                     </div>
                 </div>
-                <a href="/edit/{{ this_card.id }}">Edit</a>
-                <a href="/destroy/{{ this_card.id }}">Delete</a>
+
+                <a href="/dashboard">Dashboard</a>
+                
+                {% if this_card.user.id == session["user_id"] %}
+                    <a href="/edit/{{ this_card.id }}">Edit</a>
+                    <a href="/cards/delete/{{ this_card.id }}">Delete</a>
+                {% endif %}
             </div>
         </div>
 

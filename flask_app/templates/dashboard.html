@@ -25,7 +25,6 @@
                             <li>{{ card.skills }}</li>
                             <li>{{ card.stats }}</li>
                             <a href="/show/{{ card.id }}">View</a>
-                            
                         {% if card.user.id == this_user.id %}
                             <a href="/edit/{{ card.id }}">Edit</a>
                             <a href="cards/delete/{{ card.id }}">Delete</a>
