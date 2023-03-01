@@ -527,3 +527,35 @@ ul {
 }
 
 /* Here's a new push lol */
+
+
+
+/* CREATE A FORM CSS BEGINS */
+
+#createContainer {
+  background-color: #97D2FB;
+  display: flex;
+  flex-direction:column;
+
+}
+
+.create-form {
+  /* col-3 enable-rounded */
+  width: 300px;
+}
+
+/* CREATE FORM CSS ENDS */
+
+/* EDIT FORM CSS BEGINS */
+#editContainer {
+  background-color: #9FA0C3;
+  display: flex;
+  flex-direction:column;
+
+}
+.editForm {
+  /* col-3 enable-rounded */
+  width: 300px;
+}
+
+/* EDIT FORM CSS ENDS */

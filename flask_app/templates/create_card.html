@@ -4,17 +4,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='./css/styles.css')}}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Card Creation.</title>
 </head>
 <body>
+
     <div class="nav_bar">
         <a href="/dashboard">Back to Dashboard</a>
     </div>
-    <form action="/cards/add_to_db" method="post" class="col-3 enable-rounded bg-dark text-light"  enctype="multipart/form-data">
-    <h2 class="text-light my-3">-Create a new card-</h2>
+    
+    <div id="createContainer">
+    <form action="/cards/add_to_db" method="post" class="create-form"  enctype="multipart/form-data">
+
+    <img class="create-kitty" src="{{ url_for('static', filename='pictures/create-cat.png') }}" alt="Create Kitty">
 
     {% with messages = get_flashed_messages() %}
         {% if messages %}
@@ -31,18 +36,22 @@
         <label for="name">Name:</label>
         <input type="text" name="name" value="{{name}}" id="cardName" class="form-control" placeholder="Input Name">
     </div>
+
     <div class="form-group">
         <label for="bio">Bio:</label>
         <textarea name="bio" value="{{bio}}" class="form-control" placeholder="Create Bio" id="bio-input"></textarea>
     </div>
+
     <div class="form-group">
         <label for="skills">Skills:</label>
         <textarea name="skills" value="{{skills}}" class="form-control" placeholder="Add Skills" id="skills-input"></textarea>
     </div>
+
     <div class="form-group">
         <label for="stats">Stats:</label>
         <input type="number" min="1" max="100" name="stats" value="{{stats}}" class="form-control" placeholder="1 - 100" id="stats-input">
     </div>
+
     <div class="form-group">
         <label for="tier">Card Tier:</label>
         <select name="tier" class="form-control">
@@ -53,10 +62,10 @@
         </select>
     </div>
 
-    <div class="form-group">
+    <!-- <div class="form-group">
         <label for="picture">Picture:</label>
         <input type="file" name="file" value="Upload" class="form-control-file" accept="image/*">
-    </div>
+    </div> -->
 
         <input type="submit" value="Create" class="my-4 btn btn-success">
     </form>
@@ -90,7 +99,7 @@
                 <h2>-Card Preview-</h2>
                 <div id="card-100" class="card">
                     <h2 class="card-title"><p id="name-output"></p></h2>
-                    <img class="card-img" src="../static/pictures/{{filename}}" alt="Card image cap">
+                    <!-- <img class="card-img" src="../static/pictures/{{filename}}" alt="Card image cap"> -->
                     <h3 class="card-subtitle"><p id="tier-output"></p></h3>
                     <div  class="card-body">
                         <ul class="card-list-group">
@@ -102,5 +111,6 @@
                 </div>
             </div>
         </div>
+    </div>
 </body>
 </html>

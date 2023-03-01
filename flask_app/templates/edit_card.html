@@ -4,15 +4,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='./css/styles.css')}}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Edit Card</title>
 </head>
 <body>
+    <div class="nav_bar">
+        <a href="/dashboard">Back to Dashboard</a>
+    </div>
 
-    <form action="/cards/edit_in_db/{{this_card.id}}" method="post" enctype="multipart/form-data" class="col-3 enable-rounded bg-dark text-light">
-        <h2 class="text-light my-3">-Edit Card-</h2>
+    <div id="editContainer">
+
+    <form action="/cards/edit_in_db/{{this_card.id}}" method="post" enctype="multipart/form-data" class="editForm">
+        <img class="edit-kitty" src="{{ url_for('static', filename='pictures/edit-cat.png') }}" alt="Edit Kitty">
+
         {% with messages = get_flashed_messages() %}
         {% if messages %}
         <div class="alert alert-danger" role="alert">
@@ -48,14 +55,15 @@
             <option value="Instructor">Instructor</option>
         </select>
     </div>
-    <div class="form-group">
+    <!-- <div class="form-group">
         <label for="picture">Picture:</label>
         <input type="file" name="picture" class="form-control-file">
         {% if this_card.picture %}
         <img src="{{url_for('static', filename='uploads/' + this_card.picture)}}" alt="Picture">
         {% endif %}
-    </div>
+    </div> -->
     <input type="submit" value="Update" class="my-4 btn btn-primary">
     </form>
+</div>
 </body>
 </html>
