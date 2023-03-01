@@ -38,28 +38,6 @@
             <div class="card-columns" >
                 {% if cards %}
                 <h2>All Cards</h2>
-                {% for card in cards %}
-                <div id="card-100" class="card">
-                    <h2 class="card-title">{{ card.name }}</h2>
-                    <img class="card-img" src="../static/pictures/{{filename}}" alt="Card image cap">
-                    <div  class="card-body">
-                        <h3 class="card-subtitle">{{ card.tier }}</h3>
-                        <ul class="card-list-group">
-                            <li><span class="card-list-group-item">SKILLS:</span> {{ card.skills }} </li>
-                            <li><span class="card-list-group-item">STATS:</span> {{ card.stats }}</li>
-                        </ul>
-                    <p class="card-text">{{ card.bio }}</p>
-                    </div>
-                </div>
-                        <a href="/show/{{ card.id }}">View</a>
-                    {% if card.user.id == this_user.id %}
-                        <a href="/edit/{{ card.id }}">Edit</a>
-                        <a href="cards/delete/{{ card.id }}">Delete</a>
-                    {% endif %}
-                {% endfor %}
-                {% endif %}
-                </div>
-            </div>
         </div>
     </div>
 </body>
