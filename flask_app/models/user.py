@@ -5,7 +5,7 @@ EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
 from flask_bcrypt import Bcrypt
 from flask_app import app
 bcrypt = Bcrypt(app)
-from flask_app.models import cards
+from flask_app.models import card
 
 class User:
     db_name = "not_a_scam_schema"
@@ -25,9 +25,9 @@ class User:
     def register_user(cls, data):
         query = """
         INSERT INTO users
-        (first_name, last_name, email, password)
+        (first_name, last_name, tier, email, password)
         VALUES 
-        (%(first_name)s, %(last_name)s, %(email)s, %(password)s);
+        (%(first_name)s, %(last_name)s, %(tier)s, %(email)s, %(password)s);
         """
         return connectToMySQL(cls.db_name).query_db(query, data)
 
@@ -75,6 +75,7 @@ class User:
                     "bio": user_card["bio"],
                     "skills": user_card["skills"],
                     "stats": user_card["stats"],
+                    "tier": user_card["cards.tier"],
                     "created_at": user_card["cards.created_at"],
                     "updated_at": user_card["cards.updated_at"]
                 }
@@ -90,9 +91,6 @@ class User:
             is_valid = False
         if len(form_data["last_name"]) < 2:
             flash("Last name must be 2 or more characters", "register")
-            is_valid = False
-        if len(form_data["tier"]) < 2:
-            flash("Tier must be 2 or more characters", "register")
             is_valid = False
         if not EMAIL_REGEX.match(form_data['email']): 
             flash("Invalid email address!", "register")

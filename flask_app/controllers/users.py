@@ -8,6 +8,10 @@ bcrypt = Bcrypt(app)
 def login_page():
     return render_template("login.html")
 
+@app.route("/Registration")
+def reg_page():
+    return render_template("register.html")
+
 @app.route("/user/cards")
 def users_card():
     if "user_id" not in session:
@@ -20,15 +24,15 @@ def users_card():
 @app.route("/register", methods=["POST"])
 def register_user():
     if not user.User.validate_registration(request.form):
-        return redirect("/")
+        return redirect("/Registration")
     data = {
         "first_name": request.form["first_name"],
         "last_name": request.form["last_name"],
+        "tier": request.form["tier"],
         "email": request.form["email"],
         "password": bcrypt.generate_password_hash(request.form["password"]),
     }
     session["user_id"] = user.User.register_user(data)
-
     return redirect("/dashboard")
 
 @app.route("/login", methods=["POST"])
@@ -38,7 +42,6 @@ def log_user_in():
         return redirect("/")
     session["user_id"] = found_user_or_false.id
     return redirect("/dashboard")
-
 
 @app.route("/logout")
 def logout_user():

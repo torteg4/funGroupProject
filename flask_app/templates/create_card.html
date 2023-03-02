@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='./css/styles.css')}}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Card Creation</title>
+</head>
+
+<body class="create-bg">
+
+    <div class="dashboard-nav">
+        <a id="dashboard-link" href="/dashboard"><<< Back to Dashboard</a>
+    </div>
+
+    <div id="createContainer">
+        <div class="createContainerLeft">
+            <form action="/cards/add_to_db" method="post" class="create-form"  enctype="multipart/form-data">
+
+                <img class="create-kitty" src="{{ url_for('static', filename='pictures/create-cat.png') }}" alt="Create Kitty">
+
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                    <div class="alert alert-danger" role="alert">
+                        <strong>ERROR</strong>
+                        {% for message in messages %}
+                            <p>{{message}}</p>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                {% endwith %}
+
+                <div class="form-group">
+                    <label for="name" class="create-label">Name:</label>
+                    <input type="text" name="name" value="{{name}}" id="cardName" class="form-control" placeholder="Name">
+                </div>
+
+                <div class="form-group">
+                    <label for="bio" class="create-label">Bio:</label>
+                    <textarea name="bio" value="{{bio}}" class="form-control" placeholder="Create Bio" id="bio-input"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="skills" class="create-label">Skills:</label>
+                    <textarea name="skills" value="{{skills}}" class="form-control" placeholder="Add Skills (i.e. fast typer, doesn't forget to start recording before starting lecture)" id="skills-input"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="stats" class="create-label">Stats:</label>
+                    <input type="number" min="1" max="100" name="stats" value="{{stats}}" class="form-control" placeholder="1 - 100" id="stats-input">
+                </div>
+
+                <div class="form-group">
+                    <label for="tier" class="create-label">Tier:</label>
+                    <select name="tier" class="form-control">
+                        <option value="Student">Student</option>
+                        <option value="Alumni">Alumni</option>
+                        <option value="TA">TA</option>
+                        <option value="Instructor">Instructor</option>
+                    </select>
+                </div>
+
+            <!-- <div class="form-group">
+                <label for="picture">Picture:</label>
+                <input type="file" name="file" value="Upload" class="form-control-file" accept="image/*">
+            </div> -->
+
+                <input type="submit" value="Create" class="create-btn">
+            </form>
+        </div>
+
+
+        <script>
+            // add event listeners to name, bio, and skills inputs
+            $('#cardName').on('input', function() {
+                $('#name-output').text($(this).val());
+            });
+
+            $('#bio-input').on('input', function() {
+                $('#bio-output').text($(this).val());
+            });
+            
+            $('#tier-input').on('input', function() {
+                $('#tier-output').select($(this).val());
+            });
+            
+            $('#skills-input').on('input', function() {
+                $('#skills-output').text($(this).val());
+            });
+
+            $('#stats-input').on('input', function() {
+                $('#stats-output').text($(this).val());
+            });
+        </script>
+
+        <div class="createContainerRight">
+
+            <div class="cardPreview">
+                <h2 class="cardPreview-title"><em>Card Preview</em></h2>
+                <h4 class="cardPreview-name"><b><p id="name-output"></p></b></h4>
+                <!-- <h3 class="card-subtitle"><p id="tier-output"></p></h3> -->
+                <div  class="cardPreview-body">
+                    <ul class="cardPreview-list">
+                        <li><span class="cardPreview-list-item">BIO:</span><p id="bio-output"></p></li>
+                        <li><span class="cardPreview-list-item">SKILLS:</span> <p id="skills-output"></p> </li>
+                        <li><span class="cardPreview-list-item">STATS:</span> <p id="stats-output"></p></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

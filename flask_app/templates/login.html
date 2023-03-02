@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='./css/styles.css')}}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>TOTALLY NOT A SCAM TM</title>
+</head>
+<body id="bodyLogin">
+    <section class="mainSection">
+        <nav class="navDash d-flex justify-content-between">
+            <div class="d-flex align-items-center">
+                <img class="qr" src="{{ url_for('static', filename='pictures/QR code.png') }}" alt="qr" height="50px" width="50px">
+                <h1 class="text-center my-4 text-dark">SCAM Central (Dojo Traders)</h1>
+            </div>
+            <div class="d-flex align-items-center">
+                <button class="btn btn-dark m-2"> <a class="regButton" href="/Registration">Register</a></button> 
+            <div class="vl m-2">
+                </div>
+                <form action="/login" method="post" class="text-dark d-flex">
+                {% with messages = get_flashed_messages(category_filter=['login']) %}
+                    {% if messages %}
+                    <div class="text-danger" role="alert">
+                            {% for message in messages %}
+                            <p class="err align-middle">{{message}}</p>
+                            {% endfor %}
+                    </div>
+                    {% endif %}
+                {% endwith %}
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="text" name="email" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" name="password" class="form-control">
+                    </div>
+                    <input type="submit" value="Login" class="btn btn-success my-4 m-3">
+                </form>
+            </div>
+           
+        </nav>
+
+        <div class="d-flex justify-content-between">
+            <div class="stateLogo">
+                <p class="invInk">Software Coders At Making</p>
+            </div>
+    
+            <div class="actualCard d-flex justify-content-around">
+                <div class="card1">
+                    <p>S++</p>
+                    <img class="imgCard" src="{{ url_for('static', filename='pictures/rosie.png') }}" alt="Image 1" >
+                    <div class="divCard1">
+                        <p>Project Lead / Frontend</p>
+                        <a href="https://github.com/Ubaeby"><img class="github" src="../static/pictures/github-mark.png" alt="git" > </a>
+                        <a href="https://www.linkedin.com/in/pocketfilledwithrosies/"><img class="linkedin" src="../static/pictures/linkedin.png" alt="linkedin"></a>
+                    </div>
+                </div>
+    
+                <div class="card2"> 
+                    <p>S++</p>
+                    <img class="imgCard" src="{{ url_for('static', filename='pictures/tiffany2.png') }}" alt="Image 2">
+                    <div class="divCard1">
+                        <p>Project Front/Backend</p>
+                        <a href="https://github.com/torteg4"><img class="github" src="../static/pictures/github-mark.png" alt="git"></a>
+                        <a href="https://www.linkedin.com/in/tiffany-ortega/"><img class="linkedin" src="../static/pictures/linkedin.png" alt="linkedin"></a>
+                    </div>
+                </div>
+    
+                <div class="card3">
+                    <p>Bait++</p>
+                    <img class="imgCard" src="{{ url_for('static', filename='pictures/ten neices.png') }}" alt="Image 3"  >
+                    <div class="divCard1">
+                        <p>Project Backend</p>
+                        <a href="https://github.com/uRedonkulous"><img class="github" src="../static/pictures/github-mark.png" alt="git"> </a>
+                        <a href="https://www.linkedin.com/in/thanh-nguyen-012950238/"><img class="linkedin" src="../static/pictures/linkedin.png" alt="linkedin"></a>
+                    </div>
+                </div>
+    
+                <div class ="card4">
+                    <p>Cat++</p>
+                    <img class="imgCard" src="{{ url_for('static', filename='pictures/matt.png') }}" alt="Image 4"  >
+                    <div class="divCard1">
+                        <p>Project Backend</p>
+                        <a href="https://github.com/uRedonkulous"><img class="github" src="../static/pictures/github-mark.png" alt="git" height="25px" width="25px"> </a>
+                        <a href="https://www.linkedin.com/in/thanh-nguyen-012950238/"><img class="linkedin" src="../static/pictures/linkedin.png" alt="linkedin"></a>
+                    </div>
+                </div>
+    
+            </div>
+
+        </div>
+        
+        <div class="d-flex">
+            <p>Copyright @2023 SCAM</p>
+        <a href="https://github.com/Ubaeby/funGroupProject">
+        <img src="{{ url_for('static', filename='pictures/github-mark.png') }}" alt="Image 3" height="25px" width="25px">
+        </div>
+        
+    </a>
+    </div>
+    </section>
+        
+    
+
+</body>
+</html>

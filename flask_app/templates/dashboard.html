@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='./css/styles.css')}}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Dashboard</title>
+</head>
+<body id="dashBody">
+    <div class="wrapper">
+        <h1 class="text-center">Welcome {{ this_user.first_name }}!</h1>
+
+        <input type="checkbox" id="checkbox">
+        <label class="sideButton" for="checkbox"><i class="fa fa-bars">
+        </i> <span>Menu</span></label>
+        <div class="sidebar">
+            <ul>
+                <a href="/new/card">
+                    <li>
+                        <i class="fa fa-card"></i>
+                        Create a Card
+                    </li>
+                </a>   
+                <a href="/logout">
+                    <li>
+                        <i class="fa fa-logout"></i>
+                        Logout
+                    </li>
+                </a>  
+            </ul>
+            
+        </div>
+        <h2 class="text-center">All Cards</h2>
+        <div class="container d-flex justify-content-center flex-wrap align-items-center">
+            {% if cards %}
+                {% for card in cards %}
+                    <a class="cardLink" href="/show/{{ card.id }}">
+                        <div class="{{card.tier}} dashCard  m-5">
+                            <p>{{ card.name }}</p>
+                            <p>Leader Skills: {{ card.skills }}</p>
+                            <p>{{ card.bio }}</p>
+                            <div class="d-flex">
+                                <p>Stats: </p>
+                                <div class="pBarGray">
+                                {% if card.stats >= 50%}
+                                    <div class="p-bar nice" style="width:{{ card.stats}}%"> {{card.stats}}
+                                {% endif %}    
+                                {% if card.stats < 50 %}
+                                    <div class="p-bar bad" style="width:{{ card.stats}}%"> {{card.stats}}
+                                {% endif %}    
+                                </div>
+                                </div>   
+                            </div>
+                            {% if card.user.id == this_user.id %}
+                                <div class ="d-flex justify-content-center">
+                                    <a class="btn btn-primary m-2 text-white" href="/edit/{{ card.id }}">Edit</a>
+                                    <a class="text-white btn btn-danger m-2" href="cards/delete/{{ card.id }}">Sell</a>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </a>
+                {% endfor %}
+                {% else %}
+                    <p>No cards found.</p>
+                {% endif %}
+
+        </div>
+    </div>
+</body>
+</html>
