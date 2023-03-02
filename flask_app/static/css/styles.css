@@ -640,8 +640,6 @@ ul {
   border-radius: 25px;
 }
 
-/* Here's a new push lol */
-
 
 
 /* CREATE A FORM CSS BEGINS */
@@ -653,7 +651,8 @@ ul {
   margin: 15px 0px 0px 20px;
 }
 #dashboard-link {
-  color: #13CDCD;
+  /* color: #13CDCD; */
+  color: #53F3D3;
 }
 /* #dashboard-link:visited {
   color: #109393;
@@ -675,6 +674,7 @@ ul {
   width: 300px;
   margin: 0px 0px 0px 20px;
 }
+
 .create-label {
   color: #592b21;
 }
@@ -707,9 +707,9 @@ ul {
   border: 3px solid #7c3d12;
   border-radius: 25px;
   background-color: #DADBC4;
-  margin: 100px 10px 70px 20px;
+  margin: 100px 10px 70px 50px;
   text-align: center;
-
+  word-break: break-word;
 }
 
 .create-form {
@@ -719,6 +719,8 @@ ul {
 }
 
 .cardPreview {
+  width: 290px;
+  word-break: break-word;
   display: flex;
   flex-direction:column;
   align-items: center;
@@ -772,15 +774,58 @@ ul {
 /* CREATE FORM CSS ENDS */
 
 /* EDIT FORM CSS BEGINS */
-#editContainer {
-  background-color: #9FA0C3;
-  display: flex;
-  flex-direction:column;
+.edit-bg {
+  background-color: #4d6b70 ;
+}
 
+#editContainer {
+  display: flex;
+  flex-direction:row;
+  background-image: url(../pictures/toolbox-bg.png);
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  padding: 5px 0;
+}
+.editContainer-left {
+  margin: 50px 5px 20px 0px;
+}
+.editContainer-right {
+  margin: 10px 0px 15px 10px;
+  padding: 20px 10px;
+  background-color: #f7f0de;
+  border: 3px solid #f7f0de;
+  border-radius: 25px;
+  text-align: center;
 }
 .editForm {
   /* col-3 enable-rounded */
   width: 300px;
 }
 
+.edit-label {
+  color: #bc6608;
+}
+
+.edit-btn {
+  cursor: pointer;
+  height:30px;
+  width: 275px;
+  outline: none;
+  color: #fff;
+  background-color: #bc6608;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 5px #021327;
+  transition-duration: 0.1s;
+}
+
+.edit-btn:hover {
+  background-color: #8b5122; /* Green */
+}
+
+.edit-btn:active {
+  background-color: #592b21;
+  box-shadow: 0 2px #24262d;
+  transform: translateY(4px);
+}
 /* EDIT FORM CSS ENDS */
