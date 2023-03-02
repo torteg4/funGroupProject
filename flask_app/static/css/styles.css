@@ -200,6 +200,21 @@
   color: #ffab00;
 }
 
+.cardLink {
+  text-decoration: none;
+  color: white;
+}
+
+.cardLink:hover {
+  text-decoration: none;
+  color: white;
+}
+
+.cardLink:after {
+  text-decoration: none;
+  color: white;
+}
+
 .logoImg {
   height: 650px;
   width: 650px;
@@ -402,20 +417,58 @@ ul {
 /* Dashboard CSS */
 
 #dashBody {
-  background-color: lightgray;
-}
-
-.wrapper {
   background-color: beige;
 }
 
+
+.container {
+  background-color: #BAB5BD;
+  box-shadow: 5px 5px lightskyblue;
+  height: 100%;
+}
+
+.dashCard {
+  width: 250px;
+  height: 250px;
+  padding: 10px;
+  background-color: #2B2E33;
+  color: white;
+}
+
+.Student {
+  border: 3px solid green;
+  box-shadow: 0px 0px 5px green;
+}
+
+.Alumni {
+  border: 3px solid blue;
+  box-shadow: 0px 0px 5px blue;
+}
+
+.TA {
+  border: 3px solid purple;
+  box-shadow: 0px 0px 15px purple;
+}
+
+.Instructor {
+  border: 3px solid gold;
+  animation: glow 3s linear infinite;
+}
+
+@keyframes glow {
+  0% {box-shadow: 0px 0px 10px gold;}
+  25% {box-shadow: 0px 0px 20px gold;}
+  50% {box-shadow: 0px 0px 40px orangered;}
+  75% {box-shadow: 0px 0px 20px gold;}
+  100% {box-shadow: 0px 0px 10px gold;}
+}
 #checkbox, .sideButton span { /* Hide the checkbox input & word "Menu" in the button */
   display: none;
 }
 
 .sideButton {
   display: block;
-  background-color: #247D9E;
+  background-color: #a272d2;
   color: #fff;
   width: 55px;
   height: 50px;
@@ -478,7 +531,7 @@ ul {
 
 .sidebar ul a:nth-child(3)::after {
   content: "2";
-  background-color: #247D9E;
+  background-color: #a272d2;
 }
 
 /* Add margin to the icon in the second item */
@@ -497,7 +550,7 @@ ul {
   top: 0;
   left: 0;
   content: "";
-  background-color: #247D9E;
+  background-color: #a272d2;
   width: 4px;
   height: 100%;
 }
@@ -518,12 +571,24 @@ ul {
 }
 /* Effect of showing the sidebar - ends */
 
+.nice {
+  background-color: lightgreen;
+}
+
+.bad {
+  background-color: lightcoral;
+}
+
 .p-bar {
-  background-color: lightblue;
+  border-radius: 25px;
+  text-align: center;
 }
 
 .pBarGray {
   background-color: gray;
+  width: 75%;
+  height: 25px;
+  border-radius: 25px;
 }
 
 /* Here's a new push lol */
