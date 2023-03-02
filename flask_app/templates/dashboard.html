@@ -37,8 +37,8 @@
         <div class="container d-flex justify-content-center flex-wrap align-items-center">
             {% if cards %}
                 {% for card in cards %}
-                    <a class="cardLink " href="/show/{{ card.id }}">
-                        <div class="dashCard {{card.tier}} m-5">
+                    <a class="cardLink" href="/show/{{ card.id }}">
+                        <div class="{{card.tier}} dashCard  m-5">
                             <p>{{ card.name }}</p>
                             <p>Leader Skills: {{ card.skills }}</p>
                             <p>{{ card.bio }}</p>
@@ -55,8 +55,8 @@
                                 </div>   
                             </div>
                             {% if card.user.id == this_user.id %}
-                            <a href="/edit/{{ card.id }}">Edit</a>
-                            <a href="cards/delete/{{ card.id }}">Sell</a>
+                            <button class="btn btn-primary"><a class="text-white" href="/edit/{{ card.id }}">Edit</a></button>
+                            <button class="btn btn-danger"><a class="text-white" href="cards/delete/{{ card.id }}">Sell</a></button>
                             {% endif %}
                         </div>
                     </a>

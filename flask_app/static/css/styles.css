@@ -432,22 +432,24 @@ ul {
   height: 250px;
   padding: 10px;
   background-color: #2B2E33;
-  color: white;
 }
 
 .Student {
   border: 3px solid green;
   box-shadow: 0px 0px 5px green;
+  background-color: rgb(47, 94, 47);
 }
 
 .Alumni {
   border: 3px solid blue;
   box-shadow: 0px 0px 5px blue;
+  background-color: rgb(121, 202, 229);
 }
 
 .TA {
   border: 3px solid purple;
   box-shadow: 0px 0px 15px purple;
+  background-color: rgb(139, 87, 139);
 }
 
 .Instructor {
@@ -581,13 +583,14 @@ ul {
 
 .p-bar {
   border-radius: 25px;
+  height:23px;
   text-align: center;
 }
 
 .pBarGray {
   background-color: gray;
   width: 75%;
-  height: 25px;
+  height: 23px;
   border-radius: 25px;
 }
 
