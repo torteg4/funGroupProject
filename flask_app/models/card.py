@@ -114,13 +114,13 @@ class Card:
     def validate_card(form_data):
         is_valid = True
         if len(form_data["name"]) < 2:
-            flash ("Name must be 2 or more cards")
+            flash ("Name must be 2 or more characters")
             is_valid = False
         if len(form_data["bio"]) < 2:
-            flash ("Bio must be 2 or more cards")
+            flash ("Bio must be 2 or more characters")
             is_valid = False
         if len(form_data["skills"]) < 2:
-            flash ("Skills must be 2 or more cards")
+            flash ("Skills must be 2 or more characters")
             is_valid = False
         if len(form_data["stats"]) < 1:
             flash ("Stats must be between 1 and 100")
