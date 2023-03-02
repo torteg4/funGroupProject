@@ -10,6 +10,18 @@
   background-color: lightgray;
 }
 
+.divCard1 .github {
+  height: 25px;
+  width: 25px;
+  transform: translateY(-20%);
+}
+
+.divCard1 .linkedin {
+  height: 15px;
+  width: 60px;
+  transform: translateY(-20%);
+}
+
 .mainSection {
   margin-top: 100px;
   padding: 30px;
