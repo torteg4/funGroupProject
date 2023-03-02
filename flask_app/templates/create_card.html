@@ -17,6 +17,10 @@
     </div>
     
     <div id="createContainer">
+
+    <div class="createContainerLeft">
+
+        
     <form action="/cards/add_to_db" method="post" class="create-form"  enctype="multipart/form-data">
 
     <img class="create-kitty" src="{{ url_for('static', filename='pictures/create-cat.png') }}" alt="Create Kitty">
@@ -48,7 +52,7 @@
     </div>
 
     <div class="form-group">
-        <label for="stats">Stats:</label>
+        <label for="stats">Stats (0-100):</label>
         <input type="number" min="1" max="100" name="stats" value="{{stats}}" class="form-control" placeholder="1 - 100" id="stats-input">
     </div>
 
@@ -69,6 +73,8 @@
 
         <input type="submit" value="Create" class="my-4 btn btn-success">
     </form>
+</div>
+
 
     <script>
         // add event listeners to name, bio, and skills inputs
@@ -79,11 +85,11 @@
         $('#bio-input').on('input', function() {
             $('#bio-output').text($(this).val());
         });
-
+        
         $('#tier-input').on('input', function() {
             $('#tier-output').select($(this).val());
         });
-
+        
         $('#skills-input').on('input', function() {
             $('#skills-output').text($(this).val());
         });
@@ -93,24 +99,23 @@
         });
     </script>
 
-            <div class="cardsContainer m-4">
-            <!-- Cards -->
-            <div class="card-columns" >
-                <h2>-Card Preview-</h2>
-                <div id="card-100" class="card">
-                    <h2 class="card-title"><p id="name-output"></p></h2>
-                    <!-- <img class="card-img" src="../static/pictures/{{filename}}" alt="Card image cap"> -->
-                    <h3 class="card-subtitle"><p id="tier-output"></p></h3>
-                    <div  class="card-body">
-                        <ul class="card-list-group">
-                            <li><span class="card-list-group-item">SKILLS:</span> <p id="skills-output"></p> </li>
-                            <li><span class="card-list-group-item">STATS:</span> <p id="stats-output"></p></li>
-                        </ul>
-                        <p class="card-text">BIO: <p id="bio-output"></p></p>
-                    </div>
-                </div>
+    <div class="createContainerRight">
+
+        <div class="cardPreview">
+            <h2 class="cardPreview-title">Card Preview</h2>
+            <h4 class="cardPreview-name"><p id="name-output"></p></h4>
+            <!-- <h3 class="card-subtitle"><p id="tier-output"></p></h3> -->
+            <div  class="cardPreview-body">
+                <ul class="cardPreview-list">
+                    <li><span class="cardPreview-list-item">SKILLS:</span> <p id="skills-output"></p> </li>
+                    <li><span class="cardPreview-list-item">STATS:</span> <p id="stats-output"></p></li>
+                    <li><p class="cardPreview-list-item">BIO: <p id="bio-output"></p></p>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
+</div>
+
 </body>
 </html>
