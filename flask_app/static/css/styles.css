@@ -645,27 +645,60 @@ ul {
 
 
 /* CREATE A FORM CSS BEGINS */
+.create-bg {
+  background-color: #FADD8C;
+}
+
+.dashboard-nav {
+  margin: 15px 0px 0px 20px;
+}
+#dashboard-link {
+  color: #13CDCD;
+}
+/* #dashboard-link:visited {
+  color: #109393;
+} */
+#dashboard-link:hover {
+  color: #bc6608;
+}
 
 #createContainer {
-  background-color: #FADD8C;
   display: flex;
   background-image: url(../pictures/create-bg-transparent.png);
   background-repeat: no-repeat;
   background-position: right bottom;
-
+  padding: 5px 0;
 }
 
 .createContainerLeft{
-  /* width: 300px;
-  display: flex;
-  flex-direction:column; */
-  background-color: ;
+  text-align: center;
+  width: 300px;
+  margin: 0px 0px 0px 20px;
+}
+.create-label {
+  color: #592b21;
 }
 
-.create-form {
-  width: 300px;
-  display: flex;
-  flex-direction:column;
+.create-btn {
+  cursor: pointer;
+  height:30px;
+  outline: none;
+  color: #fff;
+  background-color: #13CDCD;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 5px #021327;
+  transition-duration: 0.1s;
+}
+
+.create-btn:hover {
+  background-color: #0C8383; /* Green */
+}
+
+.create-btn:active {
+  background-color: #063737;
+  box-shadow: 0 2px #24262d;
+  transform: translateY(4px);
 }
 
 .createContainerRight {
@@ -674,8 +707,15 @@ ul {
   border: 3px solid #7c3d12;
   border-radius: 25px;
   background-color: #DADBC4;
-  margin:10px 20px 10px 20px;
+  margin: 100px 10px 70px 20px;
   text-align: center;
+
+}
+
+.create-form {
+  width: 300px;
+  display: flex;
+  flex-direction:column;
 }
 
 .cardPreview {
@@ -687,7 +727,7 @@ ul {
 .cardPreview-title {
   padding-top:10px;
   margin-top: 20px;
-  margin-bottom: 5px;
+  margin-bottom: 15px;
   color: #464f5f;
   font-weight: bold;
   text-shadow: 1px 1px 3px #f4e88e, 0 0 35px #232126, 0 0 10px #19297C;
@@ -705,6 +745,7 @@ ul {
 
 #skills-output, #stats-output, #bio-output {
   color: #8b5122;
+  text-decoration: none;
 }
 
 .cardPreview-body {
@@ -713,9 +754,15 @@ ul {
   margin-bottom: 0;
   background-color: #DADBC4;
 }
-.cardPreview-list {
+
+.cardPreview-list{
   padding: inherit;
   list-style-type:none;
+}
+.cardPreview-list span{
+  padding: inherit;
+  list-style-type:none;
+  text-decoration: underline;
 }
 .cardPreview-list-item{
   padding: inherit;
