@@ -55,8 +55,10 @@
                                 </div>   
                             </div>
                             {% if card.user.id == this_user.id %}
-                            <button class="btn btn-primary"><a class="text-white" href="/edit/{{ card.id }}">Edit</a></button>
-                            <button class="btn btn-danger"><a class="text-white" href="cards/delete/{{ card.id }}">Sell</a></button>
+                                <div class ="d-flex justify-content-center">
+                                    <a class="btn btn-primary m-2 text-white" href="/edit/{{ card.id }}">Edit</a>
+                                    <a class="text-white btn btn-danger m-2" href="cards/delete/{{ card.id }}">Sell</a>
+                                </div>
                             {% endif %}
                         </div>
                     </a>

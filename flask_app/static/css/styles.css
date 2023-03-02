@@ -302,14 +302,15 @@
 
 /* VIEW CARD CSS */
 
-/* .cardsContainer {
-  display:flex;
+#viewCard {
+  background-color: beige;
+  height: 500px;
+}
+.cardsContainer {
+  display: flex;
   justify-content: center;
-  /* margin: 25px;
-  width: 350px;
-  height: 200px;
-  outline: dashed 1px black; */
-/* } */
+  transform: translateY(-80%);
+ }
 
 .card {
   display: flex;
@@ -320,6 +321,29 @@
   /* changed */
   border-radius: 0;
   /* changed */
+}
+
+.moveCard {
+  width: 100px;
+  height: 280px;
+  padding: 10px;
+  color: white;
+  font-size: 10px;
+  transition: .6s;
+  transform: rotatex(75deg) translatey(-230px) translatez(-100px);
+  box-shadow: 0px 20px 60px rgba(0, 0, 0, 0.5);
+  content: none;
+}
+
+.moveCard:hover {
+  width: 300px;
+  height: 480px;
+  font-size: 20px;
+  transform: rotatex(0deg);
+  transform: rotatez(0deg);
+  transition: .6s;
+  box-shadow: 0px 0px 20px rgba(225, 150, 58, 0.5);
+  content: normal;
 }
 
 .card-body {
@@ -417,6 +441,13 @@ ul {
   background-color: beige;
 }
 
+.woodTable {
+  z-index: 1;
+  object-fit: fill;
+  width: 75%;
+  height: 500px;
+  transform: translate(20%, 20%);
+}
 
 .container {
   background-color: #BAB5BD;
@@ -425,33 +456,39 @@ ul {
 }
 
 .dashCard {
-  width: 250px;
-  height: 250px;
+  width: 230px;
+  height: 280px;
   padding: 10px;
-  background-color: #2B2E33;
+  color: white;
 }
+
 
 .Student {
   border: 3px solid green;
   box-shadow: 0px 0px 5px green;
   background-color: rgb(47, 94, 47);
+  z-index: 2;
 }
 
 .Alumni {
   border: 3px solid blue;
   box-shadow: 0px 0px 5px blue;
   background-color: rgb(121, 202, 229);
+  z-index: 2;
 }
 
 .TA {
   border: 3px solid purple;
   box-shadow: 0px 0px 15px purple;
   background-color: rgb(139, 87, 139);
+  z-index: 2;
 }
 
 .Instructor {
   border: 3px solid gold;
   animation: glow 3s linear infinite;
+  background-color: #2B2E33;
+  z-index: 2;
 }
 
 @keyframes glow {
