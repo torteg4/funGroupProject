@@ -3,6 +3,7 @@
 from flask_app import app
 from flask import render_template, request, redirect, session
 from flask_app.models import user, card
+import random
 
 # def validate_image(stream):
 #     header = stream.read(512)
