@@ -312,7 +312,7 @@
   }
 }
 
-/* VIEW CARD CSS */
+/*! VIEW CARD CSS */
 
 #viewCard {
   background-color: beige;
@@ -322,7 +322,7 @@
   display: flex;
   justify-content: center;
   transform: translateY(-80%);
- }
+}
 
 .card {
   display: flex;
@@ -447,7 +447,7 @@ ul {
 
 
 
-/* Dashboard CSS */
+/*! Dashboard CSS */
 
 #dashBody {
   background-color: beige;
@@ -604,7 +604,7 @@ ul {
 }
 /* Sidebar - ends */
 
-/* Effect of showing the sidebar - starts */
+/*! Effect of showing the sidebar - starts */
 #checkbox:checked ~ .sidebar {
   transform: translateX(0);
 }
@@ -642,9 +642,16 @@ ul {
 
 
 
-/* CREATE A FORM CSS BEGINS */
+/*! CREATE A FORM CSS BEGINS */
 .create-bg {
   background-color: #FADD8C;
+  display:flex;
+  flex-direction: column;
+  /* justify-content: space-around; */
+  align-items: center;
+  background-image: url(../pictures/create-bg-transparent.png);
+  background-repeat: no-repeat;
+  background-position: right bottom;
 }
 
 .dashboard-nav {
@@ -663,9 +670,9 @@ ul {
 
 #createContainer {
   display: flex;
-  background-image: url(../pictures/create-bg-transparent.png);
+  /* background-image: url(../pictures/create-bg-transparent.png);
   background-repeat: no-repeat;
-  background-position: right bottom;
+  background-position: right bottom; */
   padding: 5px 0;
 }
 
@@ -773,21 +780,24 @@ ul {
 
 /* CREATE FORM CSS ENDS */
 
-/* EDIT FORM CSS BEGINS */
-.edit-bg {
+/*! EDIT FORM CSS BEGINS */
+#edit-bg {
   background-color: #4d6b70 ;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url(../pictures/toolbox-bg.png);
+  background-repeat: no-repeat;
+  background-position: right bottom;
 }
 
 #editContainer {
   display: flex;
   flex-direction:row;
-  background-image: url(../pictures/toolbox-bg.png);
-  background-repeat: no-repeat;
-  background-position: right bottom;
   padding: 5px 0;
 }
 .editContainer-left {
-  margin: 50px 5px 20px 0px;
+  margin: 50px 5px 10px 0px;
 }
 .editContainer-right {
   margin: 10px 0px 15px 10px;
